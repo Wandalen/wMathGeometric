@@ -1470,4 +1470,11 @@ let Extension =
 _.mapSupplement( _.math, Extension );
 injectChunks( Extension );
 
+// --
+// export
+// --
+
+if( typeof module !== 'undefined' && module !== null )
+module[ 'exports' ] = _;
+
 })();
