@@ -1,6 +1,6 @@
 {
   "name" : "wmathgeometric", 
-  "version" : "0.3.2", 
+  "version" : "0.3.3", 
   "description" : "Collection of geometric math functions. Based on module MathVector.", 
   "author" : "Kostiantyn Wandalen <wanalen@willbe.so>", 
   "license" : "MIT", 
@@ -17,6 +17,6 @@
     "url" : "https ://github.com/Wandalen/wMathGeometric/issues"
   }, 
   "dependencies" : { "wTools" : "", "wmathscalar" : "", "wmathvector" : "" }, 
-  "devDependencies" : { "wTesting" : "" }, 
+  "devDependencies" : { "wTesting" : "", "wmathgeometric" : "file:." }, 
   "keywords" : [ "wTools" ]
 }
