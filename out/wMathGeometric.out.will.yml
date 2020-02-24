@@ -1483,6 +1483,4 @@ module:
       ../.im.will.yml:
         hash: 572416a8243c5c7c51c4de5ad7a29ce1
         size: 4743
-      wMathGeometric.out.will.yml:
-        hash: 56ff09910c63855562b4fb8297edb06d
-        size: 37750
+      wMathGeometric.out.will.yml: *ref_0
