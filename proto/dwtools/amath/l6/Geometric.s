@@ -898,7 +898,7 @@ function rayRayIntersectionFactors( r1, r2 )
   _.assert( r1[ 0 ].length === 2, 'implemented only for d2' );
   _.assert( r2[ 0 ].length === 2, 'implemented only for d2' );
 
-  let dorigin = avector.subVectors( r2[ 0 ].slice() , r1[ 0 ] );
+  let dorigin = avector.sub( r2[ 0 ].slice() , r1[ 0 ] );
 
   let y = [];
   y[ 0 ] = + dorigin[ 0 ];

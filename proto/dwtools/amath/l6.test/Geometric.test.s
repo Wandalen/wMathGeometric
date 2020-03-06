@@ -228,7 +228,7 @@ function pairPairIntersectionPoint( test )
 
     var distance1 = _.avector.distance.apply( undefined, pair1 );
     var distance2 = _.avector.distance.apply( undefined, pair2 );
-    var areParallel = _.avector.areParallel( _.avector.subVectors.apply( undefined, pair1.slice() ), _.avector.subVectors.apply( undefined, pair2.slice() ) );
+    var areParallel = _.avector.areParallel( _.avector.sub.apply( undefined, pair1.slice() ), _.avector.sub.apply( undefined, pair2.slice() ) );
 
     if( !areParallel && distance1 > 0 && distance2 > 0 )
     if( a[ 0 ] === -Infinity )
@@ -240,7 +240,7 @@ function pairPairIntersectionPoint( test )
 
       var distance1 = _.avector.distance.apply( undefined, pair1 );
       var distance2 = _.avector.distance.apply( undefined, pair2 );
-      var areParallel = _.avector.areParallel( _.avector.subVectors.apply( undefined, pair1.slice() ), _.avector.subVectors.apply( undefined, pair2.slice() ) );
+      var areParallel = _.avector.areParallel( _.avector.sub.apply( undefined, pair1.slice() ), _.avector.sub.apply( undefined, pair2.slice() ) );
     }
 
     if( !areParallel && distance1 > 0 && distance2 > 0 )
@@ -341,7 +341,7 @@ function d2Angle( test )
           var sample1 = _.avector.normalize( samples[ i1 ].slice() );
           var sample2 = _.avector.normalize( samples[ i2 ].slice() );
 
-          _.avector.addVectors( sample2, add[ a ] );
+          _.avector.add( sample2, add[ a ] );
 
           var o = functions[ f ]( sample1, sample2 );
           console.log( _.strForCall( f, [ sample1, sample2 ], o, { precision : 3 } ) );
