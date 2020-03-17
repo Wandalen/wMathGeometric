@@ -1374,35 +1374,35 @@ let Extension =
 
   // iterator
 
-  eachEdgeOfCube,
-  eachPlaneOfCube,
+  eachEdgeOfCube,//
+  eachPlaneOfCube,//
 
   // d2
 
-  d2LineGeneralEqWithPoints,
-  d2LineGeneralEqWithPointAndTangent,
+  d2LineGeneralEqWithPoints,//lineImplicit.eqWithPoints
+  d2LineGeneralEqWithPointAndTangent,//lineImplicit.eqWithPointAndTangent
 
-  d2LineLineGeneralEqIntersection,
+  d2LineLineGeneralEqIntersection,//lineImplicit.lineIntersection
 
-  d2LineGeneraEqPointDistance,
+  d2LineGeneraEqPointDistance,//lineImplicit.pointDistance
 
-  d2LinePointDistanceCentered,
-  d2LinePointDistance,
+  d2LinePointDistanceCentered,//line.pointDistanceCentered
+  // d2LinePointDistance,//line.pointDistance
 
-  d2SegmentToPointDistanceSqr, // xxx
+  // d2SegmentToPointDistanceSqr, // xxx segment.pointDistance
 
-  d2PolygonPointDistanceSqr,
-  d2PolygonPointDistance,
-  d2PolygonPointInside,
-  d2PolygonConvexPointInside,
-  d2PolygonConcavePointInside,
+  d2PolygonPointDistanceSqr,// convexPolygon.pointDistanceSqr, concavePolygon.pointDistanceSqr
+  d2PolygonPointDistance,// convexPolygon.pointDistance, concavePolygon.pointDistance
+  d2PolygonPointInside,// concavePolygon.pointContains
+  // d2PolygonConvexPointInside,// convexPolygon.pointContains
+  d2PolygonConcavePointInside,// concavePolygon.pointContains
 
-  d2PolygonIsClockwise,
+  d2PolygonIsClockwise,//*polygon.isClockwise
 
-  _d2LinePointsToPointSide,
-  _d2LinePointsToPointDistance,
+  _d2LinePointsToPointSide,//line.pointsToPointSide
+  _d2LinePointsToPointDistance,//line.pointsToPointDistance
 
-  d2TriPointInside,
+  d2TriPointInside,//triangle.pointContains
 
   // angle
 
@@ -1418,50 +1418,50 @@ let Extension =
 
   // pair / ray - original
 
-  rayFromPair,
-  rayAt,
+  //rayFromPair,//ray.fromPair
+  // rayAt,// ray.rayAt
 
-  pairFromRay,
-  pairAt,
+  pairFromRay,// pair.fromRay
+  pairAt,//pair.pairAt
 
   // pair / ray - from ray
 
   _pairPairRoutineFromRayRayRoutine,
 
-  rayRayParallel,
-  rayRayIntersectionFactors,
-  rayRayIntersectionPoints,
-  rayRayIntersectionPoint,
-  rayRayIntersectionPointAccurate,
+  // rayRayParallel,//ray.rayParallel
+  // rayRayIntersectionFactors,//ray.rayIntersectionFactors
+  // rayRayIntersectionPoints,//ray.rayIntersectionPoints
+  // rayRayIntersectionPoint,//ray.rayIntersectionPoint
+  // rayRayIntersectionPointAccurate,//ray.rayIntersectionPointAccurate
 
-  pairPairParallel : _pairPairRoutineFromRayRayRoutine( rayRayParallel, 'Parallel' ),
-  pairPairIntersectionFactors : _pairPairRoutineFromRayRayRoutine( rayRayIntersectionFactors, 'IntersectionFactors' ),
+  pairPairParallel : _pairPairRoutineFromRayRayRoutine( rayRayParallel, 'Parallel' ),//pair.pairParallel
+  pairPairIntersectionFactors : _pairPairRoutineFromRayRayRoutine( rayRayIntersectionFactors, 'IntersectionFactors' ),//pair.pairIntersectionFactors
   /*pairPairIntersectionPoints : _pairPairRoutineFromRayRayRoutine( rayRayIntersectionPoints, 'IntersectionPoints' ), */
-  pairPairIntersectionPoint : _pairPairRoutineFromRayRayRoutine( rayRayIntersectionPoint, 'IntersectionPoint' ),
-  pairPairIntersectionPointAccurate : _pairPairRoutineFromRayRayRoutine( rayRayIntersectionPointAccurate, 'IntersectionPointAccurate' ),
+  pairPairIntersectionPoint : _pairPairRoutineFromRayRayRoutine( rayRayIntersectionPoint, 'IntersectionPoint' ),//pair.pairIntersectionPoint
+  pairPairIntersectionPointAccurate : _pairPairRoutineFromRayRayRoutine( rayRayIntersectionPointAccurate, 'IntersectionPointAccurate' ),////pair.pairIntersectionPointAccurate
 
   // linear equation
 
-  d2linearEquationSolve,
+  d2linearEquationSolve,//Matrix.solveLinear?
   linearEquationSolveExternal,
   linearEquationSolve,
 
   // line other
 
-  linePointDistanceOriginSqr,
-  linePointDistanceSqr,
-  relativeSegmentOrigin,
-  relativeSegment,
-  segmentToPointDistanceSqr,
+  linePointDistanceOriginSqr,//line.pointDistanceOriginSqr
+  linePointDistanceSqr,//line.pointDistanceSqr
+  relativeSegmentOrigin,//segment.relativeSegmentOrigin
+  relativeSegment,//segment.relativeSegment
+  segmentToPointDistanceSqr,//segment.pointDistanceSqr
 
   // other
 
-  barycentricToPosArray,
-  inConvexPoly2d,
-  distanceToTri,
-  inTri,
-  triCentre,
-  triSphereSmallest,
+  barycentricToPosArray,//convexPolygon?
+  inConvexPoly2d,//convexPolygon.inPolygon?
+  distanceToTri,//triangle.pointDistance
+  inTri,//triangle.inTri
+  triCentre,//triangle.inTriCentre
+  triSphereSmallest,//trianle.sphereSmallest?
 
 };
 
