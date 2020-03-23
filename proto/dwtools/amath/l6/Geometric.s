@@ -1379,12 +1379,12 @@ let Extension =
 
   // d2
 
-  d2LineGeneralEqWithPoints,//lineImplicit.eqWithPoints
-  d2LineGeneralEqWithPointAndTangent,//lineImplicit.eqWithPointAndTangent
+  // d2LineGeneralEqWithPoints,//lineImplicit.eqWithPoints
+  // d2LineGeneralEqWithPointAndTangent,//lineImplicit.eqWithPointAndTangent
 
-  d2LineLineGeneralEqIntersection,//lineImplicit.lineIntersection
+  // d2LineLineGeneralEqIntersection,//lineImplicit.lineIntersection
 
-  d2LineGeneraEqPointDistance,//lineImplicit.pointDistance
+  // d2LineGeneraEqPointDistance,//lineImplicit.pointDistance
 
   d2LinePointDistanceCentered,//line.pointDistanceCentered
   // d2LinePointDistance,//line.pointDistance
