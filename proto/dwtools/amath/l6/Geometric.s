@@ -784,60 +784,60 @@ rayFromPair.shaderChunk =
 
 //
 
-function pairFromRay( dstPair, srcRay )
-{
-  dstPair = dstPair || [];
-  dstPair[ 0 ] = srcRay[ 0 ];
-  dstPair[ 1 ] = avector.add( null, srcRay[ 1 ], srcRay[ 0 ] );
-  return dstPair;
-}
+// function pairFromRay( dstPair, srcRay )
+// {
+//   dstPair = dstPair || [];
+//   dstPair[ 0 ] = srcRay[ 0 ];
+//   dstPair[ 1 ] = avector.add( null, srcRay[ 1 ], srcRay[ 0 ] );
+//   return dstPair;
+// }
 
 //
 
-function rayAt( srcRay, factor )
-{
-  let result = avector.mul( null, srcRay[ 1 ], factor );
-  avector.add( result, srcRay[ 0 ] );
-  return result;
-}
+// function rayAt( srcRay, factor )
+// {
+//   let result = avector.mul( null, srcRay[ 1 ], factor );
+//   avector.add( result, srcRay[ 0 ] );
+//   return result;
+// }
 
-rayAt.shaderChunk =
-`
-  vec2 rayAt( vec2 srcRay[ 2 ], float factor )
-  {
+// rayAt.shaderChunk =
+// `
+//   vec2 rayAt( vec2 srcRay[ 2 ], float factor )
+//   {
 
-    vec2 result = srcRay[ 1 ]*factor;
-    result += srcRay[ 0 ];
+//     vec2 result = srcRay[ 1 ]*factor;
+//     result += srcRay[ 0 ];
 
-    return result;
-  }
-`
+//     return result;
+//   }
+// `
 
 //
 
-function pairAt( pair, factor )
-{
+// function pairAt( pair, factor )
+// {
 
-  let a = avector.mul( pair[ 0 ].slice(), 1-factor );
-  let b = avector.mul( pair[ 1 ].slice(), factor );
+//   let a = avector.mul( pair[ 0 ].slice(), 1-factor );
+//   let b = avector.mul( pair[ 1 ].slice(), factor );
 
-  let result = avector.add( a, b );
+//   let result = avector.add( a, b );
 
-  return result;
-}
+//   return result;
+// }
 
-pairAt.shaderChunk =
-`
-  vec2 pairAt( vec2 pair[ 2 ], float factor )
-  {
+// pairAt.shaderChunk =
+// `
+//   vec2 pairAt( vec2 pair[ 2 ], float factor )
+//   {
 
-    vec2 a = pair[ 0 ] * ( 1.0-factor );
-    vec2 b = pair[ 1 ] * factor;
-    vec2 result = a + b;
+//     vec2 a = pair[ 0 ] * ( 1.0-factor );
+//     vec2 b = pair[ 1 ] * factor;
+//     vec2 result = a + b;
 
-    return result;
-  }
-`
+//     return result;
+//   }
+// `
 
 // --
 // pair / ray - from ray
@@ -1421,8 +1421,8 @@ let Extension =
   //rayFromPair,//ray.fromPair
   // rayAt,// ray.rayAt
 
-  pairFromRay,// pair.fromRay
-  pairAt,//pair.pairAt
+  // pairFromRay,// pair.fromRay
+  // pairAt,//pair.pairAt
 
   // pair / ray - from ray
 
@@ -1434,11 +1434,11 @@ let Extension =
   // rayRayIntersectionPoint,//ray.rayIntersectionPoint
   // rayRayIntersectionPointAccurate,//ray.rayIntersectionPointAccurate
 
-  pairPairParallel : _pairPairRoutineFromRayRayRoutine( rayRayParallel, 'Parallel' ),//pair.pairParallel
-  pairPairIntersectionFactors : _pairPairRoutineFromRayRayRoutine( rayRayIntersectionFactors, 'IntersectionFactors' ),//pair.pairIntersectionFactors
+  // pairPairParallel : _pairPairRoutineFromRayRayRoutine( rayRayParallel, 'Parallel' ),//pair.pairParallel
+  // pairPairIntersectionFactors : _pairPairRoutineFromRayRayRoutine( rayRayIntersectionFactors, 'IntersectionFactors' ),//pair.pairIntersectionFactors
   /*pairPairIntersectionPoints : _pairPairRoutineFromRayRayRoutine( rayRayIntersectionPoints, 'IntersectionPoints' ), */
-  pairPairIntersectionPoint : _pairPairRoutineFromRayRayRoutine( rayRayIntersectionPoint, 'IntersectionPoint' ),//pair.pairIntersectionPoint
-  pairPairIntersectionPointAccurate : _pairPairRoutineFromRayRayRoutine( rayRayIntersectionPointAccurate, 'IntersectionPointAccurate' ),////pair.pairIntersectionPointAccurate
+  // pairPairIntersectionPoint : _pairPairRoutineFromRayRayRoutine( rayRayIntersectionPoint, 'IntersectionPoint' ),//pair.pairIntersectionPoint
+  // pairPairIntersectionPointAccurate : _pairPairRoutineFromRayRayRoutine( rayRayIntersectionPointAccurate, 'IntersectionPointAccurate' ),////pair.pairIntersectionPointAccurate
 
   // linear equation
 
@@ -1448,7 +1448,7 @@ let Extension =
 
   // line other
 
-  linePointDistanceOriginSqr,//line.pointDistanceOriginSqr
+  linePointDistanceOriginSqr,//qqq move?
   linePointDistanceSqr,//line.pointDistanceSqr
   relativeSegmentOrigin,//segment.relativeSegmentOrigin
   relativeSegment,//segment.relativeSegment
