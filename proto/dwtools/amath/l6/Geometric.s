@@ -843,35 +843,35 @@ rayFromPair.shaderChunk =
 // pair / ray - from ray
 // --
 
-function _pairPairRoutineFromRayRayRoutine( rayRayRoutine, name )
-{
+// function _pairPairRoutineFromRayRayRoutine( rayRayRoutine, name )
+// {
 
-  _.assert( _.routineIs( rayRayRoutine ) );
-  _.assert( _.strIs( name ) );
+//   _.assert( _.routineIs( rayRayRoutine ) );
+//   _.assert( _.strIs( name ) );
 
-  function pairPairRoutine()
-  {
-    _.assert( arguments.length === 2, 'Expects exactly two arguments' );
-    let r1 = this.rayFromPair( arguments[ 0 ] );
-    let r2 = this.rayFromPair( arguments[ 1 ] );
-    return rayRayRoutine.call( this, r1, r2 );
-  }
+//   function pairPairRoutine()
+//   {
+//     _.assert( arguments.length === 2, 'Expects exactly two arguments' );
+//     let r1 = this.rayFromPair( arguments[ 0 ] );
+//     let r2 = this.rayFromPair( arguments[ 1 ] );
+//     return rayRayRoutine.call( this, r1, r2 );
+//   }
 
-  pairPairRoutine.shaderChunk =
-  `
-    vec2 pairPair` + name + `( vec2 p1[ 2 ], vec2 p2[ 2 ] )
-    {
+//   pairPairRoutine.shaderChunk =
+//   `
+//     vec2 pairPair` + name + `( vec2 p1[ 2 ], vec2 p2[ 2 ] )
+//     {
 
-      vec2 r1[ 2 ], r2[ 2 ];
-      rayFromPair( r1, p1 );
-      rayFromPair( r2, p2 );
+//       vec2 r1[ 2 ], r2[ 2 ];
+//       rayFromPair( r1, p1 );
+//       rayFromPair( r2, p2 );
 
-      return rayRay` + name + `( r1, r2 );
-    }
-  `
+//       return rayRay` + name + `( r1, r2 );
+//     }
+//   `
 
-  return pairPairRoutine;
-}
+//   return pairPairRoutine;
+// }
 
 //
 
@@ -1002,27 +1002,27 @@ rayRayIntersectionPointAccurate.shaderChunk =
 // line other
 // --
 
-function linePointDistanceOriginSqr( b, p )
-{
+// function linePointDistanceOriginSqr( b, p )
+// {
 
-  throw _.err( 'not tested' );
+//   throw _.err( 'not tested' );
 
-  //p.slice().sub( p.slice().mul( p.dot( b ) ) );
-  p.cross( b );
+//   //p.slice().sub( p.slice().mul( p.dot( b ) ) );
+//   p.cross( b );
 
-  return p.lengthSq() / b.lengthSq();
-}
+//   return p.lengthSq() / b.lengthSq();
+// }
 
 //
 
-function linePointDistanceSqr( linePoints, point )
-{
+// function linePointDistanceSqr( linePoints, point )
+// {
 
-  let lineCentered = avector.sub( linePoints[ 1 ].slice(), linePoints[ 0 ] );
-  let pointCentered = avector.sub( point.slice(), linePoints[ 0 ] );
+//   let lineCentered = avector.sub( linePoints[ 1 ].slice(), linePoints[ 0 ] );
+//   let pointCentered = avector.sub( point.slice(), linePoints[ 0 ] );
 
-  return this.linePointDistanceOriginSqr( lineCentered, pointCentered );
-}
+//   return this.linePointDistanceOriginSqr( lineCentered, pointCentered );
+// }
 
 //
 
@@ -1135,21 +1135,21 @@ function inConvexPoly2d( poly, pos, barycentric )
 
 //
 
-function distanceToTri( tri, pos ) {
+// function distanceToTri( tri, pos ) {
 
-  let p0 = pos.slice();
-  let p1 = tri[ 1 ].slice();
-  let p2 = tri[ 2 ].slice();
+//   let p0 = pos.slice();
+//   let p1 = tri[ 1 ].slice();
+//   let p2 = tri[ 2 ].slice();
 
-  p0.sub( tri[ 0 ] );
-  p1.sub( tri[ 0 ] );
-  p2.sub( tri[ 0 ] );
+//   p0.sub( tri[ 0 ] );
+//   p1.sub( tri[ 0 ] );
+//   p2.sub( tri[ 0 ] );
 
-  p1.cross( p2 ).normalize();
-  let result = Math.abs( p1.dot( p0 ) );
-  return result;
+//   p1.cross( p2 ).normalize();
+//   let result = Math.abs( p1.dot( p0 ) );
+//   return result;
 
-}
+// }
 
 //
 
@@ -1386,14 +1386,14 @@ let Extension =
 
   // d2LineGeneraEqPointDistance,//lineImplicit.pointDistance
 
-  // d2LinePointDistanceCentered,//line.pointDistanceCentered
-  // d2LinePointDistance,//line.pointDistance
+  // d2LinePointDistanceCentered,//linePointCentered.pointDistanceCentered2D
+  // d2LinePointDistance,//linePointCentered.pointDistance2D
 
   // d2SegmentToPointDistanceSqr, // xxx segment.pointDistance
 
   // d2PolygonPointDistanceSqr,// convexPolygon.pointDistanceSqr, concavePolygon.pointDistanceSqr
   // d2PolygonPointDistance,// convexPolygon.pointDistance, concavePolygon.pointDistance
-  // d2PolygonPointInside,// polygon.pointContains
+  // d2PolygonPointInside,// convexPolygon.pointContains2D
   // d2PolygonConvexPointInside,// convexPolygon.pointContains
   //d2PolygonConcavePointInside,// concavePolygon.pointContains
 
@@ -1426,7 +1426,7 @@ let Extension =
 
   // pair / ray - from ray
 
-  _pairPairRoutineFromRayRayRoutine,
+  // _pairPairRoutineFromRayRayRoutine,
 
   // rayRayParallel,//ray.rayParallel
   // rayRayIntersectionFactors,//ray.rayIntersectionFactors
@@ -1448,17 +1448,17 @@ let Extension =
 
   // line other
 
-  linePointDistanceOriginSqr,//qqq move?
-  linePointDistanceSqr,//line.pointDistanceSqr
-  relativeSegmentOrigin,//segment.relativeSegmentOrigin
-  relativeSegment,//segment.relativeSegment
-  segmentToPointDistanceSqr,//segment.pointDistanceSqr
+  // linePointDistanceOriginSqr,//linePointCentered.pointDistanceCentered3DSqr
+  // linePointDistanceSqr,//linePointCentered.pointDistance3DSqr
+  // relativeSegmentOrigin,//segment.relativeSegmentOrigin
+  // relativeSegment,//segment.relativeSegment
+  // segmentToPointDistanceSqr,//segment.pointDistanceSqr
 
   // other
 
-  barycentricToPosArray,//convexPolygon?
+  barycentricToPosArray,//triangle.
   inConvexPoly2d,//convexPolygon.inPolygon?
-  distanceToTri,//triangle.pointDistance
+  // distanceToTri,//triangle.pointDistance
   inTri,//triangle.inTri
   triCentre,//triangle.inTriCentre
   triSphereSmallest,//trianle.sphereSmallest?
