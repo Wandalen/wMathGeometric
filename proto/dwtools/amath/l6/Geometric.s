@@ -1069,7 +1069,8 @@ function segmentToPointDistanceSqr( segmentPoints, point )
 
 // -- other
 
-function barycentricToPosArray( result, poly, barycentric ) {
+function barycentricToPosArray( result, poly, barycentric )
+{
 
   result.copy( poly[ 0 ] ).sub( poly[ 0 ] );
   for( let i = 0 ; i < poly.length ; i++ )
