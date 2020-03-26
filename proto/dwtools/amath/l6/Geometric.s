@@ -131,254 +131,254 @@ function eachPlaneOfCube( onPlane )
 // d2
 // --
 
-function d2LineGeneralEqWithPoints( point1, point2 )
-{
-  let result = [];
+// function d2LineGeneralEqWithPoints( point1, point2 )
+// {
+//   let result = [];
 
-  result[ 0 ] = point1[ 1 ] - point2[ 1 ];
-  result[ 1 ] = point2[ 0 ] - point1[ 0 ];
-  result[ 2 ] = point2[ 1 ] * point1[ 0 ] - point2[ 0 ] * point1[ 1 ];
+//   result[ 0 ] = point1[ 1 ] - point2[ 1 ];
+//   result[ 1 ] = point2[ 0 ] - point1[ 0 ];
+//   result[ 2 ] = point2[ 1 ] * point1[ 0 ] - point2[ 0 ] * point1[ 1 ];
 
-  return result;
-}
+//   return result;
+// }
 
 
 
-d2LineGeneralEqWithPoints.shaderChunk =
+// d2LineGeneralEqWithPoints.shaderChunk =
 
-`
-  vec3 d2LineGeneralEqWithPoints( vec2 point1, vec2 point2 )
-  {
-    vec3 result;
+// `
+//   vec3 d2LineGeneralEqWithPoints( vec2 point1, vec2 point2 )
+//   {
+//     vec3 result;
 
-    result[ 0 ] = point1[ 1 ] - point2[ 1 ];
-    result[ 1 ] = point2[ 0 ] - point1[ 0 ];
-    result[ 2 ] = point2[ 1 ] * point1[ 0 ] - point2[ 0 ] * point1[ 1 ];
+//     result[ 0 ] = point1[ 1 ] - point2[ 1 ];
+//     result[ 1 ] = point2[ 0 ] - point1[ 0 ];
+//     result[ 2 ] = point2[ 1 ] * point1[ 0 ] - point2[ 0 ] * point1[ 1 ];
 
-    return result;
-  }
-`
-
-//
-
-function d2LineGeneralEqWithPointAndTangent( point, tangent )
-{
-  let result = [];
-
-  result[ 0 ] = - tangent[ 1 ];
-  result[ 1 ] = + tangent[ 0 ];
-  result[ 2 ] = ( point[ 1 ]+tangent[ 1 ] ) * point[ 0 ] - ( point[ 0 ]+tangent[ 0 ] ) * point[ 1 ];
-
-  return result;
-}
-
-d2LineGeneralEqWithPointAndTangent.shaderChunk =
-`
-  vec3 d2LineGeneralEqWithPointAndTangent( vec2 point, vec2 tangent )
-  {
-    vec3 result;
-
-    result[ 0 ] = - tangent[ 1 ];
-    result[ 1 ] = + tangent[ 0 ];
-    result[ 2 ] = ( point[ 1 ]+tangent[ 1 ] ) * point[ 0 ] - ( point[ 0 ]+tangent[ 0 ] ) * point[ 1 ];
-
-    return result;
-  }
-`
+//     return result;
+//   }
+// `
 
 //
 
-function d2LineLineGeneralEqIntersection( lineGeneralEq1, lineGeneralEq2 )
-{
-  let result = [];
+// function d2LineGeneralEqWithPointAndTangent( point, tangent )
+// {
+//   let result = [];
 
-  let d = lineGeneralEq1[ 0 ]*lineGeneralEq2[ 1 ] - lineGeneralEq1[ 1 ]*lineGeneralEq2[ 0 ];
-  let x = lineGeneralEq1[ 1 ]*lineGeneralEq2[ 2 ] - lineGeneralEq1[ 2 ]*lineGeneralEq2[ 1 ];
-  let y = lineGeneralEq1[ 2 ]*lineGeneralEq2[ 0 ] - lineGeneralEq1[ 0 ]*lineGeneralEq2[ 2 ];
+//   result[ 0 ] = - tangent[ 1 ];
+//   result[ 1 ] = + tangent[ 0 ];
+//   result[ 2 ] = ( point[ 1 ]+tangent[ 1 ] ) * point[ 0 ] - ( point[ 0 ]+tangent[ 0 ] ) * point[ 1 ];
 
-  result[ 0 ] = x / d;
-  result[ 1 ] = y / d;
+//   return result;
+// }
 
-  return result;
-}
+// d2LineGeneralEqWithPointAndTangent.shaderChunk =
+// `
+//   vec3 d2LineGeneralEqWithPointAndTangent( vec2 point, vec2 tangent )
+//   {
+//     vec3 result;
 
-d2LineLineGeneralEqIntersection.shaderChunk =
+//     result[ 0 ] = - tangent[ 1 ];
+//     result[ 1 ] = + tangent[ 0 ];
+//     result[ 2 ] = ( point[ 1 ]+tangent[ 1 ] ) * point[ 0 ] - ( point[ 0 ]+tangent[ 0 ] ) * point[ 1 ];
 
-`
-  vec2 d2LineLineGeneralEqIntersection( vec3 lineGeneralEq1, vec3 lineGeneralEq2 )
-  {
-    vec2 result;
-
-    float d = lineGeneralEq1[ 0 ]*lineGeneralEq2[ 1 ] - lineGeneralEq1[ 1 ]*lineGeneralEq2[ 0 ];
-    float x = lineGeneralEq1[ 1 ]*lineGeneralEq2[ 2 ] - lineGeneralEq1[ 2 ]*lineGeneralEq2[ 1 ];
-    float y = lineGeneralEq1[ 2 ]*lineGeneralEq2[ 0 ] - lineGeneralEq1[ 0 ]*lineGeneralEq2[ 2 ];
-
-    result[ 0 ] = x / d;
-    result[ 1 ] = y / d;
-
-    return result;
-  }
-`
+//     return result;
+//   }
+// `
 
 //
 
-function d2LineGeneraEqPointDistance( lineGeneralEq, point )
-{
-  let result;
+// function d2LineLineGeneralEqIntersection( lineGeneralEq1, lineGeneralEq2 )
+// {
+//   let result = [];
 
-  let n = [ lineGeneralEq[ 0 ], lineGeneralEq[ 1 ] ];
-  let d = _sqrt( lineGeneralEq[ 0 ]*lineGeneralEq[ 0 ] + lineGeneralEq[ 1 ]*lineGeneralEq[ 1 ] );
+//   let d = lineGeneralEq1[ 0 ]*lineGeneralEq2[ 1 ] - lineGeneralEq1[ 1 ]*lineGeneralEq2[ 0 ];
+//   let x = lineGeneralEq1[ 1 ]*lineGeneralEq2[ 2 ] - lineGeneralEq1[ 2 ]*lineGeneralEq2[ 1 ];
+//   let y = lineGeneralEq1[ 2 ]*lineGeneralEq2[ 0 ] - lineGeneralEq1[ 0 ]*lineGeneralEq2[ 2 ];
 
-  result = ( lineGeneralEq[ 2 ] + _.avector.dot( n, point ) ) / d;
+//   result[ 0 ] = x / d;
+//   result[ 1 ] = y / d;
 
-  return result;
-}
+//   return result;
+// }
 
-//
+// d2LineLineGeneralEqIntersection.shaderChunk =
 
-function d2LinePointDistanceCentered( lineCentered, pointCentered )
-{
-  let d = _dot( [ -lineCentered[ 1 ], +lineCentered[ 0 ] ], pointCentered );
-  return d / _mag( lineCentered );
-}
+// `
+//   vec2 d2LineLineGeneralEqIntersection( vec3 lineGeneralEq1, vec3 lineGeneralEq2 )
+//   {
+//     vec2 result;
 
-//
+//     float d = lineGeneralEq1[ 0 ]*lineGeneralEq2[ 1 ] - lineGeneralEq1[ 1 ]*lineGeneralEq2[ 0 ];
+//     float x = lineGeneralEq1[ 1 ]*lineGeneralEq2[ 2 ] - lineGeneralEq1[ 2 ]*lineGeneralEq2[ 1 ];
+//     float y = lineGeneralEq1[ 2 ]*lineGeneralEq2[ 0 ] - lineGeneralEq1[ 0 ]*lineGeneralEq2[ 2 ];
 
-function d2LinePointDistance( linePoints, point )
-{
+//     result[ 0 ] = x / d;
+//     result[ 1 ] = y / d;
 
-  let lineCentered = avector.sub( linePoints[ 1 ].slice(), linePoints[ 0 ] );
-  let pointCentered = avector.sub( point.slice(), linePoints[ 0 ] );
-
-  return d2LinePointDistanceCentered( lineCentered, pointCentered );
-}
-
-//
-
-function d2SegmentToPointDistanceSqr( segmentPoints, point ) // xxx
-{
-  let t = relativeSegment( segmentPoints, point );
-
-  if( t < 0 )
-  {
-    return _distanceSqr( segmentPoints[ 0 ], point );
-  }
-  else if( t > 1 )
-  {
-    return _distanceSqr( segmentPoints[ 1 ], point );
-  }
-  else
-  {
-    return _sqr( d2LinePointDistance( segmentPoints, point ) );
-  }
-
-}
+//     return result;
+//   }
+// `
 
 //
 
-function d2PolygonPointDistanceSqr( polygon, point )
-{
+// function d2LineGeneraEqPointDistance( lineGeneralEq, point )
+// {
+//   let result;
 
-  let p = 0;
-  let pl = polygon.length / 2;
-  let p1 = [ polygon[ (pl-1)*2+0 ], polygon[ (pl-1)*2+1 ] ];
-  let p2 = [ polygon[ (p+0)*2+0 ], polygon[ (p+0)*2+1 ] ];
-  let smallest = d2SegmentToPointDistanceSqr( [ p1, p2 ], point );
+//   let n = [ lineGeneralEq[ 0 ], lineGeneralEq[ 1 ] ];
+//   let d = _sqrt( lineGeneralEq[ 0 ]*lineGeneralEq[ 0 ] + lineGeneralEq[ 1 ]*lineGeneralEq[ 1 ] );
 
-  for( p = 1 ; p < pl ; p++ )
-  {
+//   result = ( lineGeneralEq[ 2 ] + _.avector.dot( n, point ) ) / d;
 
-    let p1 = [ polygon[ (p-1)*2+0 ], polygon[ (p-1)*2+1 ] ];
-    let p2 = [ polygon[ (p+0)*2+0 ], polygon[ (p+0)*2+1 ] ];
-    let d = d2SegmentToPointDistanceSqr( [ p1, p2 ], point );
-    if( d < smallest ) smallest = d;
-
-  }
-
-  return smallest;
-}
+//   return result;
+// }
 
 //
 
-function d2PolygonPointDistance( polygon, point )
-{
-  let result = d2PolygonPointDistanceSqr( polygon, point );
-  return _sqrt( result );
-}
+// function d2LinePointDistanceCentered( lineCentered, pointCentered )
+// {
+//   let d = _dot( [ -lineCentered[ 1 ], +lineCentered[ 0 ] ], pointCentered );
+//   return d / _mag( lineCentered );
+// }
 
 //
 
-function d2PolygonPointInside( polygon, point )
-{
-  let self = this;
-  //let c = [ point[ 0 ], point[ 1 ], 1 ];
-  let line21 = [];
-  let line20 = [];
-  let p = 0;
-  let pl = polygon.length / 2;
-  let inside = 0;
+// function d2LinePointDistance( linePoints, point )
+// {
 
-  //
+//   let lineCentered = avector.sub( linePoints[ 1 ].slice(), linePoints[ 0 ] );
+//   let pointCentered = avector.sub( point.slice(), linePoints[ 0 ] );
 
-  function pointsPointSide( points, point )
-  {
+//   return d2LinePointDistanceCentered( lineCentered, pointCentered );
+// }
 
-    let point1 = [];
-    point1[ 0 ] = points[ 0 ][ 0 ] - point[ 0 ];
-    point1[ 1 ] = points[ 0 ][ 1 ] - point[ 1 ];
+//
 
-    let point2 = [];
-    point2[ 0 ] = points[ 1 ][ 0 ] - point[ 0 ];
-    point2[ 1 ] = points[ 1 ][ 1 ] - point[ 1 ];
+// function d2SegmentToPointDistanceSqr( segmentPoints, point ) // xxx
+// {
+//   let t = relativeSegment( segmentPoints, point );
 
-    if( point1[ 0 ] < 0 && point2[ 0 ] < 0 )
-    return false;
+//   if( t < 0 )
+//   {
+//     return _distanceSqr( segmentPoints[ 0 ], point );
+//   }
+//   else if( t > 1 )
+//   {
+//     return _distanceSqr( segmentPoints[ 1 ], point );
+//   }
+//   else
+//   {
+//     return _sqr( d2LinePointDistance( segmentPoints, point ) );
+//   }
 
-    if( point1[ 0 ] > 0 && point2[ 0 ] > 0 )
-    return false;
+// }
 
-    if( point1[ 0 ] === point2[ 0 ] )
-    {
-      if( point1[ 1 ] < 0 && point2[ 1 ] < 0 )
-      return false;
+//
 
-      if( point1[ 1 ] > 0 && point2[ 1 ] > 0 )
-      return false;
+// function d2PolygonPointDistanceSqr( polygon, point )
+// {
 
-      return 2;
-    }
+//   let p = 0;
+//   let pl = polygon.length / 2;
+//   let p1 = [ polygon[ (pl-1)*2+0 ], polygon[ (pl-1)*2+1 ] ];
+//   let p2 = [ polygon[ (p+0)*2+0 ], polygon[ (p+0)*2+1 ] ];
+//   let smallest = d2SegmentToPointDistanceSqr( [ p1, p2 ], point );
 
-    let upper = point2[ 1 ] - point2[ 0 ] * ( point1[ 1 ]-point2[ 1 ] ) / ( point1[ 0 ]-point2[ 0 ] );
+//   for( p = 1 ; p < pl ; p++ )
+//   {
 
-    if( upper === 0 )
-    return 2;
+//     let p1 = [ polygon[ (p-1)*2+0 ], polygon[ (p-1)*2+1 ] ];
+//     let p2 = [ polygon[ (p+0)*2+0 ], polygon[ (p+0)*2+1 ] ];
+//     let d = d2SegmentToPointDistanceSqr( [ p1, p2 ], point );
+//     if( d < smallest ) smallest = d;
 
-    return upper >= 0;
-  }
+//   }
 
-  //
+//   return smallest;
+// }
 
-  let p1 = [ polygon[ (pl-1)*2+0 ], polygon[ (pl-1)*2+1 ] ];
-  let p2 = [ polygon[ (p+0)*2+0 ], polygon[ (p+0)*2+1 ] ];
-  let side = pointsPointSide( [ p1, p2 ], point );
-  if( side === 2 ) return 1;
-  inside = inside + side;
+//
 
-  //
+// function d2PolygonPointDistance( polygon, point )
+// {
+//   let result = d2PolygonPointDistanceSqr( polygon, point );
+//   return _sqrt( result );
+// }
 
-  for( p = 1 ; p < pl ; p++ )
-  {
+//
 
-    let p1 = [ polygon[ (p-1)*2+0 ], polygon[ (p-1)*2+1 ] ];
-    let p2 = [ polygon[ (p+0)*2+0 ], polygon[ (p+0)*2+1 ] ];
-    let side = pointsPointSide( [ p1, p2 ], point );
-    if( side === 2 ) return p+1;
-    inside = inside + side;
+// function d2PolygonPointInside( polygon, point )
+// {
+//   let self = this;
+//   //let c = [ point[ 0 ], point[ 1 ], 1 ];
+//   let line21 = [];
+//   let line20 = [];
+//   let p = 0;
+//   let pl = polygon.length / 2;
+//   let inside = 0;
 
-  }
+//   //
 
-  return inside % 2 ? pl+1 : 0;
-}
+//   function pointsPointSide( points, point )
+//   {
+
+//     let point1 = [];
+//     point1[ 0 ] = points[ 0 ][ 0 ] - point[ 0 ];
+//     point1[ 1 ] = points[ 0 ][ 1 ] - point[ 1 ];
+
+//     let point2 = [];
+//     point2[ 0 ] = points[ 1 ][ 0 ] - point[ 0 ];
+//     point2[ 1 ] = points[ 1 ][ 1 ] - point[ 1 ];
+
+//     if( point1[ 0 ] < 0 && point2[ 0 ] < 0 )
+//     return false;
+
+//     if( point1[ 0 ] > 0 && point2[ 0 ] > 0 )
+//     return false;
+
+//     if( point1[ 0 ] === point2[ 0 ] )
+//     {
+//       if( point1[ 1 ] < 0 && point2[ 1 ] < 0 )
+//       return false;
+
+//       if( point1[ 1 ] > 0 && point2[ 1 ] > 0 )
+//       return false;
+
+//       return 2;
+//     }
+
+//     let upper = point2[ 1 ] - point2[ 0 ] * ( point1[ 1 ]-point2[ 1 ] ) / ( point1[ 0 ]-point2[ 0 ] );
+
+//     if( upper === 0 )
+//     return 2;
+
+//     return upper >= 0;
+//   }
+
+//   //
+
+//   let p1 = [ polygon[ (pl-1)*2+0 ], polygon[ (pl-1)*2+1 ] ];
+//   let p2 = [ polygon[ (p+0)*2+0 ], polygon[ (p+0)*2+1 ] ];
+//   let side = pointsPointSide( [ p1, p2 ], point );
+//   if( side === 2 ) return 1;
+//   inside = inside + side;
+
+//   //
+
+//   for( p = 1 ; p < pl ; p++ )
+//   {
+
+//     let p1 = [ polygon[ (p-1)*2+0 ], polygon[ (p-1)*2+1 ] ];
+//     let p2 = [ polygon[ (p+0)*2+0 ], polygon[ (p+0)*2+1 ] ];
+//     let side = pointsPointSide( [ p1, p2 ], point );
+//     if( side === 2 ) return p+1;
+//     inside = inside + side;
+
+//   }
+
+//   return inside % 2 ? pl+1 : 0;
+// }
 
 //
 
@@ -414,50 +414,50 @@ function d2PolygonConvexPointInside( polygon, point )
 
 //
 
-function d2PolygonConcavePointInside( polygon, point )
-{
-  let self = this;
+// function d2PolygonConcavePointInside( polygon, point )
+// {
+//   let self = this;
 
-  let p = 0;
-  let pl = polygon.length / 2;
-  let p1 = [ polygon[ (pl-1)*2+0 ], polygon[ (pl-1)*2+1 ] ];
+//   let p = 0;
+//   let pl = polygon.length / 2;
+//   let p1 = [ polygon[ (pl-1)*2+0 ], polygon[ (pl-1)*2+1 ] ];
 
-  for( p = 1 ; p < pl ; p++ )
-  {
+//   for( p = 1 ; p < pl ; p++ )
+//   {
 
-    let p2 = [ polygon[ (p-1)*2+0 ], polygon[ (p-1)*2+1 ] ];
-    let p3 = [ polygon[ (p+0)*2+0 ], polygon[ (p+0)*2+1 ] ];
+//     let p2 = [ polygon[ (p-1)*2+0 ], polygon[ (p-1)*2+1 ] ];
+//     let p3 = [ polygon[ (p+0)*2+0 ], polygon[ (p+0)*2+1 ] ];
 
-    let side = _d2LinePointsToPointSide( [ p1, p2 ], point );
-    if( side === 0 )
-    {
-      let r = relativeSegment( [ p1, p2 ], point );
-      return 0 <= r && r <= 1 ? p : 0;
-    }
+//     let side = _d2LinePointsToPointSide( [ p1, p2 ], point );
+//     if( side === 0 )
+//     {
+//       let r = relativeSegment( [ p1, p2 ], point );
+//       return 0 <= r && r <= 1 ? p : 0;
+//     }
 
-    let cside1 = _d2LinePointsToPointSide( [ p2, p3 ], point );
-    if( side*cside1 < 0 )
-    continue;
-    else if( cside1 === 0 )
-    {
-      let r = relativeSegment( [ p2, p3 ], point );
-      return 0 <= r && r <= 1 ? p : 0;
-    }
+//     let cside1 = _d2LinePointsToPointSide( [ p2, p3 ], point );
+//     if( side*cside1 < 0 )
+//     continue;
+//     else if( cside1 === 0 )
+//     {
+//       let r = relativeSegment( [ p2, p3 ], point );
+//       return 0 <= r && r <= 1 ? p : 0;
+//     }
 
-    let cside2 = _d2LinePointsToPointSide( [ p3, p1 ], point );
-    if( side*cside2 < 0 )
-    continue;
-    else if( cside2 === 0 )
-    {
-      let r = relativeSegment( [ p3, p1 ], point );
-      return 0 <= r && r <= 1 ? p : 0;
-    }
+//     let cside2 = _d2LinePointsToPointSide( [ p3, p1 ], point );
+//     if( side*cside2 < 0 )
+//     continue;
+//     else if( cside2 === 0 )
+//     {
+//       let r = relativeSegment( [ p3, p1 ], point );
+//       return 0 <= r && r <= 1 ? p : 0;
+//     }
 
-    return pl+1;
-  }
+//     return pl+1;
+//   }
 
-  return 0;
-}
+//   return 0;
+// }
 
 //
 
@@ -485,44 +485,44 @@ function d2PolygonIsClockwise( polygon )
 
 //
 
-function _d2LinePointsToPointSide( segmentPoints, point )
-{
+// function _d2LinePointsToPointSide( segmentPoints, point )
+// {
 
-  let point0x = point[ 0 ] - segmentPoints[ 0 ][ 0 ];
-  let point0y = point[ 1 ] - segmentPoints[ 0 ][ 1 ];
+//   let point0x = point[ 0 ] - segmentPoints[ 0 ][ 0 ];
+//   let point0y = point[ 1 ] - segmentPoints[ 0 ][ 1 ];
 
-  let point1x = segmentPoints[ 1 ][ 0 ] - segmentPoints[ 0 ][ 0 ];
-  let point1y = segmentPoints[ 1 ][ 1 ] - segmentPoints[ 0 ][ 1 ];
+//   let point1x = segmentPoints[ 1 ][ 0 ] - segmentPoints[ 0 ][ 0 ];
+//   let point1y = segmentPoints[ 1 ][ 1 ] - segmentPoints[ 0 ][ 1 ];
 
-  let result = point0x * point1y - point0y * point1x;
+//   let result = point0x * point1y - point0y * point1x;
 
-  return result;
-/*
-  let point0 = [ point[ 0 ] - segmentPoints[ 0 ][ 0 ], point[ 1 ] - segmentPoints[ 0 ][ 1 ] ];
-  let point1 = [ segmentPoints[ 1 ][ 0 ] - segmentPoints[ 0 ][ 0 ], segmentPoints[ 1 ][ 1 ] - segmentPoints[ 0 ][ 1 ] ];
+//   return result;
+// /*
+//   let point0 = [ point[ 0 ] - segmentPoints[ 0 ][ 0 ], point[ 1 ] - segmentPoints[ 0 ][ 1 ] ];
+//   let point1 = [ segmentPoints[ 1 ][ 0 ] - segmentPoints[ 0 ][ 0 ], segmentPoints[ 1 ][ 1 ] - segmentPoints[ 0 ][ 1 ] ];
 
-  let result = point0[ 0 ] * point1[ 1 ] - point0[ 1 ] * point1[ 0 ];
+//   let result = point0[ 0 ] * point1[ 1 ] - point0[ 1 ] * point1[ 0 ];
 
-  return result;
-*/
-}
+//   return result;
+// */
+// }
 
 //
 
-function _d2LinePointsToPointDistance( segmentPoints, point )
-{
+// function _d2LinePointsToPointDistance( segmentPoints, point )
+// {
 
-  let point0x = point[ 0 ] - segmentPoints[ 0 ][ 0 ];
-  let point0y = point[ 1 ] - segmentPoints[ 0 ][ 1 ];
+//   let point0x = point[ 0 ] - segmentPoints[ 0 ][ 0 ];
+//   let point0y = point[ 1 ] - segmentPoints[ 0 ][ 1 ];
 
-  let point1x = segmentPoints[ 1 ][ 0 ] - segmentPoints[ 0 ][ 0 ];
-  let point1y = segmentPoints[ 1 ][ 1 ] - segmentPoints[ 0 ][ 1 ];
+//   let point1x = segmentPoints[ 1 ][ 0 ] - segmentPoints[ 0 ][ 0 ];
+//   let point1y = segmentPoints[ 1 ][ 1 ] - segmentPoints[ 0 ][ 1 ];
 
-  let result = point0x * point1y - point0y * point1x;
-  result /= _sqrt( point1x*point1x + point1y*point1y );
+//   let result = point0x * point1y - point0y * point1x;
+//   result /= _sqrt( point1x*point1x + point1y*point1y );
 
-  return result;
-}
+//   return result;
+// }
 
 //
 /*
@@ -538,23 +538,23 @@ function d2TriPointDistanceSqr( tri, point )
 
 //
 
-function d2TriPointInside( tri, point )
-{
+// function d2TriPointInside( tri, point )
+// {
 
-  _.assert( tri.length === 6, 'd2TriPointDistance :', 'Expects triangle as arguments' );
+//   _.assert( tri.length === 6, 'd2TriPointDistance :', 'Expects triangle as arguments' );
 
-  let s1 = _d2LinePointsToPointSide( [ [ tri[ 0 ], tri[ 1 ] ], [ tri[ 2 ], tri[ 3 ] ] ], point );
+//   let s1 = _d2LinePointsToPointSide( [ [ tri[ 0 ], tri[ 1 ] ], [ tri[ 2 ], tri[ 3 ] ] ], point );
 
-  let s2 = _d2LinePointsToPointSide( [ [ tri[ 2 ], tri[ 3 ] ], [ tri[ 4 ], tri[ 5 ] ] ], point );
-  if( s1*s2 < 0 )
-  return false;
+//   let s2 = _d2LinePointsToPointSide( [ [ tri[ 2 ], tri[ 3 ] ], [ tri[ 4 ], tri[ 5 ] ] ], point );
+//   if( s1*s2 < 0 )
+//   return false;
 
-  let s3 = _d2LinePointsToPointSide( [ [ tri[ 4 ], tri[ 5 ] ], [ tri[ 0 ], tri[ 1 ] ] ], point );
-  if( s1*s3 < 0 )
-  return false;
+//   let s3 = _d2LinePointsToPointSide( [ [ tri[ 4 ], tri[ 5 ] ], [ tri[ 0 ], tri[ 1 ] ] ], point );
+//   if( s1*s3 < 0 )
+//   return false;
 
-  return true;
-}
+//   return true;
+// }
 
 // --
 // angle
@@ -784,94 +784,94 @@ rayFromPair.shaderChunk =
 
 //
 
-function pairFromRay( dstPair, srcRay )
-{
-  dstPair = dstPair || [];
-  dstPair[ 0 ] = srcRay[ 0 ];
-  dstPair[ 1 ] = avector.add( null, srcRay[ 1 ], srcRay[ 0 ] );
-  return dstPair;
-}
+// function pairFromRay( dstPair, srcRay )
+// {
+//   dstPair = dstPair || [];
+//   dstPair[ 0 ] = srcRay[ 0 ];
+//   dstPair[ 1 ] = avector.add( null, srcRay[ 1 ], srcRay[ 0 ] );
+//   return dstPair;
+// }
 
 //
 
-function rayAt( srcRay, factor )
-{
-  let result = avector.mul( null, srcRay[ 1 ], factor );
-  avector.add( result, srcRay[ 0 ] );
-  return result;
-}
+// function rayAt( srcRay, factor )
+// {
+//   let result = avector.mul( null, srcRay[ 1 ], factor );
+//   avector.add( result, srcRay[ 0 ] );
+//   return result;
+// }
 
-rayAt.shaderChunk =
-`
-  vec2 rayAt( vec2 srcRay[ 2 ], float factor )
-  {
+// rayAt.shaderChunk =
+// `
+//   vec2 rayAt( vec2 srcRay[ 2 ], float factor )
+//   {
 
-    vec2 result = srcRay[ 1 ]*factor;
-    result += srcRay[ 0 ];
+//     vec2 result = srcRay[ 1 ]*factor;
+//     result += srcRay[ 0 ];
 
-    return result;
-  }
-`
+//     return result;
+//   }
+// `
 
 //
 
-function pairAt( pair, factor )
-{
+// function pairAt( pair, factor )
+// {
 
-  let a = avector.mul( pair[ 0 ].slice(), 1-factor );
-  let b = avector.mul( pair[ 1 ].slice(), factor );
+//   let a = avector.mul( pair[ 0 ].slice(), 1-factor );
+//   let b = avector.mul( pair[ 1 ].slice(), factor );
 
-  let result = avector.add( a, b );
+//   let result = avector.add( a, b );
 
-  return result;
-}
+//   return result;
+// }
 
-pairAt.shaderChunk =
-`
-  vec2 pairAt( vec2 pair[ 2 ], float factor )
-  {
+// pairAt.shaderChunk =
+// `
+//   vec2 pairAt( vec2 pair[ 2 ], float factor )
+//   {
 
-    vec2 a = pair[ 0 ] * ( 1.0-factor );
-    vec2 b = pair[ 1 ] * factor;
-    vec2 result = a + b;
+//     vec2 a = pair[ 0 ] * ( 1.0-factor );
+//     vec2 b = pair[ 1 ] * factor;
+//     vec2 result = a + b;
 
-    return result;
-  }
-`
+//     return result;
+//   }
+// `
 
 // --
 // pair / ray - from ray
 // --
 
-function _pairPairRoutineFromRayRayRoutine( rayRayRoutine, name )
-{
+// function _pairPairRoutineFromRayRayRoutine( rayRayRoutine, name )
+// {
 
-  _.assert( _.routineIs( rayRayRoutine ) );
-  _.assert( _.strIs( name ) );
+//   _.assert( _.routineIs( rayRayRoutine ) );
+//   _.assert( _.strIs( name ) );
 
-  function pairPairRoutine()
-  {
-    _.assert( arguments.length === 2, 'Expects exactly two arguments' );
-    let r1 = this.rayFromPair( arguments[ 0 ] );
-    let r2 = this.rayFromPair( arguments[ 1 ] );
-    return rayRayRoutine.call( this, r1, r2 );
-  }
+//   function pairPairRoutine()
+//   {
+//     _.assert( arguments.length === 2, 'Expects exactly two arguments' );
+//     let r1 = this.rayFromPair( arguments[ 0 ] );
+//     let r2 = this.rayFromPair( arguments[ 1 ] );
+//     return rayRayRoutine.call( this, r1, r2 );
+//   }
 
-  pairPairRoutine.shaderChunk =
-  `
-    vec2 pairPair` + name + `( vec2 p1[ 2 ], vec2 p2[ 2 ] )
-    {
+//   pairPairRoutine.shaderChunk =
+//   `
+//     vec2 pairPair` + name + `( vec2 p1[ 2 ], vec2 p2[ 2 ] )
+//     {
 
-      vec2 r1[ 2 ], r2[ 2 ];
-      rayFromPair( r1, p1 );
-      rayFromPair( r2, p2 );
+//       vec2 r1[ 2 ], r2[ 2 ];
+//       rayFromPair( r1, p1 );
+//       rayFromPair( r2, p2 );
 
-      return rayRay` + name + `( r1, r2 );
-    }
-  `
+//       return rayRay` + name + `( r1, r2 );
+//     }
+//   `
 
-  return pairPairRoutine;
-}
+//   return pairPairRoutine;
+// }
 
 //
 
@@ -1002,27 +1002,27 @@ rayRayIntersectionPointAccurate.shaderChunk =
 // line other
 // --
 
-function linePointDistanceOriginSqr( b, p )
-{
+// function linePointDistanceOriginSqr( b, p )
+// {
 
-  throw _.err( 'not tested' );
+//   throw _.err( 'not tested' );
 
-  //p.slice().sub( p.slice().mul( p.dot( b ) ) );
-  p.cross( b );
+//   //p.slice().sub( p.slice().mul( p.dot( b ) ) );
+//   p.cross( b );
 
-  return p.lengthSq() / b.lengthSq();
-}
+//   return p.lengthSq() / b.lengthSq();
+// }
 
 //
 
-function linePointDistanceSqr( linePoints, point )
-{
+// function linePointDistanceSqr( linePoints, point )
+// {
 
-  let lineCentered = avector.sub( linePoints[ 1 ].slice(), linePoints[ 0 ] );
-  let pointCentered = avector.sub( point.slice(), linePoints[ 0 ] );
+//   let lineCentered = avector.sub( linePoints[ 1 ].slice(), linePoints[ 0 ] );
+//   let pointCentered = avector.sub( point.slice(), linePoints[ 0 ] );
 
-  return this.linePointDistanceOriginSqr( lineCentered, pointCentered );
-}
+//   return this.linePointDistanceOriginSqr( lineCentered, pointCentered );
+// }
 
 //
 
@@ -1136,21 +1136,21 @@ function inConvexPoly2d( poly, pos, barycentric )
 
 //
 
-function distanceToTri( tri, pos ) {
+// function distanceToTri( tri, pos ) {
 
-  let p0 = pos.slice();
-  let p1 = tri[ 1 ].slice();
-  let p2 = tri[ 2 ].slice();
+//   let p0 = pos.slice();
+//   let p1 = tri[ 1 ].slice();
+//   let p2 = tri[ 2 ].slice();
 
-  p0.sub( tri[ 0 ] );
-  p1.sub( tri[ 0 ] );
-  p2.sub( tri[ 0 ] );
+//   p0.sub( tri[ 0 ] );
+//   p1.sub( tri[ 0 ] );
+//   p2.sub( tri[ 0 ] );
 
-  p1.cross( p2 ).normalize();
-  let result = Math.abs( p1.dot( p0 ) );
-  return result;
+//   p1.cross( p2 ).normalize();
+//   let result = Math.abs( p1.dot( p0 ) );
+//   return result;
 
-}
+// }
 
 //
 
@@ -1380,30 +1380,30 @@ let Extension =
 
   // d2
 
-  d2LineGeneralEqWithPoints,//lineImplicit.eqWithPoints
-  d2LineGeneralEqWithPointAndTangent,//lineImplicit.eqWithPointAndTangent
+  // d2LineGeneralEqWithPoints,//lineImplicit.eqWithPoints
+  // d2LineGeneralEqWithPointAndTangent,//lineImplicit.eqWithPointAndTangent
 
-  d2LineLineGeneralEqIntersection,//lineImplicit.lineIntersection
+  // d2LineLineGeneralEqIntersection,//lineImplicit.lineIntersection
 
-  d2LineGeneraEqPointDistance,//lineImplicit.pointDistance
+  // d2LineGeneraEqPointDistance,//lineImplicit.pointDistance
 
-  d2LinePointDistanceCentered,//line.pointDistanceCentered
-  // d2LinePointDistance,//line.pointDistance
+  // d2LinePointDistanceCentered,//linePointCentered.pointDistanceCentered2D
+  // d2LinePointDistance,//linePointCentered.pointDistance2D
 
   // d2SegmentToPointDistanceSqr, // xxx segment.pointDistance
 
-  d2PolygonPointDistanceSqr,// convexPolygon.pointDistanceSqr, concavePolygon.pointDistanceSqr
-  d2PolygonPointDistance,// convexPolygon.pointDistance, concavePolygon.pointDistance
-  d2PolygonPointInside,// concavePolygon.pointContains
+  // d2PolygonPointDistanceSqr,// convexPolygon.pointDistanceSqr, concavePolygon.pointDistanceSqr
+  // d2PolygonPointDistance,// convexPolygon.pointDistance, concavePolygon.pointDistance
+  // d2PolygonPointInside,// convexPolygon.pointContains2D
   // d2PolygonConvexPointInside,// convexPolygon.pointContains
-  d2PolygonConcavePointInside,// concavePolygon.pointContains
+  //d2PolygonConcavePointInside,// concavePolygon.pointContains
 
-  d2PolygonIsClockwise,//*polygon.isClockwise
+  // d2PolygonIsClockwise,//*polygon.isClockwise
 
-  _d2LinePointsToPointSide,//line.pointsToPointSide
-  _d2LinePointsToPointDistance,//line.pointsToPointDistance
+  // _d2LinePointsToPointSide,//line.pointsToPointSide
+  // _d2LinePointsToPointDistance,//line.pointDistance
 
-  d2TriPointInside,//triangle.pointContains
+  // d2TriPointInside,//triangle.pointContains
 
   // angle
 
@@ -1422,12 +1422,12 @@ let Extension =
   //rayFromPair,//ray.fromPair
   // rayAt,// ray.rayAt
 
-  pairFromRay,// pair.fromRay
-  pairAt,//pair.pairAt
+  // pairFromRay,// pair.fromRay
+  // pairAt,//pair.pairAt
 
   // pair / ray - from ray
 
-  _pairPairRoutineFromRayRayRoutine,
+  // _pairPairRoutineFromRayRayRoutine,
 
   // rayRayParallel,//ray.rayParallel
   // rayRayIntersectionFactors,//ray.rayIntersectionFactors
@@ -1435,11 +1435,11 @@ let Extension =
   // rayRayIntersectionPoint,//ray.rayIntersectionPoint
   // rayRayIntersectionPointAccurate,//ray.rayIntersectionPointAccurate
 
-  pairPairParallel : _pairPairRoutineFromRayRayRoutine( rayRayParallel, 'Parallel' ),//pair.pairParallel
-  pairPairIntersectionFactors : _pairPairRoutineFromRayRayRoutine( rayRayIntersectionFactors, 'IntersectionFactors' ),//pair.pairIntersectionFactors
+  // pairPairParallel : _pairPairRoutineFromRayRayRoutine( rayRayParallel, 'Parallel' ),//pair.pairParallel
+  // pairPairIntersectionFactors : _pairPairRoutineFromRayRayRoutine( rayRayIntersectionFactors, 'IntersectionFactors' ),//pair.pairIntersectionFactors
   /*pairPairIntersectionPoints : _pairPairRoutineFromRayRayRoutine( rayRayIntersectionPoints, 'IntersectionPoints' ), */
-  pairPairIntersectionPoint : _pairPairRoutineFromRayRayRoutine( rayRayIntersectionPoint, 'IntersectionPoint' ),//pair.pairIntersectionPoint
-  pairPairIntersectionPointAccurate : _pairPairRoutineFromRayRayRoutine( rayRayIntersectionPointAccurate, 'IntersectionPointAccurate' ),////pair.pairIntersectionPointAccurate
+  // pairPairIntersectionPoint : _pairPairRoutineFromRayRayRoutine( rayRayIntersectionPoint, 'IntersectionPoint' ),//pair.pairIntersectionPoint
+  // pairPairIntersectionPointAccurate : _pairPairRoutineFromRayRayRoutine( rayRayIntersectionPointAccurate, 'IntersectionPointAccurate' ),////pair.pairIntersectionPointAccurate
 
   // linear equation
 
@@ -1449,17 +1449,17 @@ let Extension =
 
   // line other
 
-  linePointDistanceOriginSqr,//line.pointDistanceOriginSqr
-  linePointDistanceSqr,//line.pointDistanceSqr
-  relativeSegmentOrigin,//segment.relativeSegmentOrigin
-  relativeSegment,//segment.relativeSegment
-  segmentToPointDistanceSqr,//segment.pointDistanceSqr
+  // linePointDistanceOriginSqr,//linePointCentered.pointDistanceCentered3DSqr
+  // linePointDistanceSqr,//linePointCentered.pointDistance3DSqr
+  // relativeSegmentOrigin,//segment.relativeSegmentOrigin
+  // relativeSegment,//segment.relativeSegment
+  // segmentToPointDistanceSqr,//segment.pointDistanceSqr
 
   // other
 
-  barycentricToPosArray,//convexPolygon?
+  barycentricToPosArray,//triangle.
   inConvexPoly2d,//convexPolygon.inPolygon?
-  distanceToTri,//triangle.pointDistance
+  // distanceToTri,//triangle.pointDistance
   inTri,//triangle.inTri
   triCentre,//triangle.inTriCentre
   triSphereSmallest,//trianle.sphereSmallest?
