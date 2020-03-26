@@ -1,6 +1,6 @@
 {
   "name" : "wmathgeometric", 
-  "version" : "0.3.17", 
+  "version" : "0.3.19", 
   "description" : "Collection of geometric math functions. Based on module MathVector.", 
   "author" : "Kostiantyn Wandalen <wanalen@willbe.so>", 
   "license" : "MIT", 
