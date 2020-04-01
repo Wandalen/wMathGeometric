@@ -5,13 +5,11 @@
 /**
  * Collection of geometric math functions. Based on module MathVector.
   @module Tools/math/Geometric
+  @extends Tools.math
 */
 
 /**
- * Collection of geometric math functions.s
-  @namespace "wTools.Geometric"
-  @extends wTools.math
-  @memberof module:Tools/math/Geometric
+ * Collection of geometric math functions
 */
 
 if( typeof module !== 'undefined' )
@@ -632,7 +630,7 @@ function angle3dCos( v1, v2 )
  * @return {number} angle - Angle in range [ 0..+2*PI ]
  * @param {array} v1, v2 - input vectors.
  * @method d2Angle
- * @memberof module:Tools/math/Geometric.wTools.Geometric
+ * @memberof module:Tools/math/Geometric.wTools.math
  */
 
 function d2Angle( v1, v2 )
@@ -670,7 +668,7 @@ d2Angle.shaderChunk =
  * @return {number} angle - Angle in range [ 0..+PI ]
  * @param {array} v1, v2 - input vectors.
  * @method d2AngleWithCos
- * @memberof module:Tools/math/Geometric.wTools.Geometric
+ * @memberof module:Tools/math/Geometric.wTools.math
  */
 
 function d2AngleWithCos( v1, v2 )
@@ -694,7 +692,7 @@ function d2AngleWithCos( v1, v2 )
  * @return {number} angle - Angle in range [ 0..+PI ]
  * @param {array} v1, v2 - input vectors.
  * @method d2AngleWithCos
- * @memberof module:Tools/math/Geometric.wTools.Geometric
+ * @memberof module:Tools/math/Geometric.wTools.math
  */
 
 function d2AngleWithCosFast( v1, v2 )
