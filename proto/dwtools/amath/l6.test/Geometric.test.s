@@ -181,7 +181,7 @@ function d2linearEquationSolve( test )
   var samples = self.samples.matrix2Eq;
 
 /*
-  var m1 = _.Matrix.makeIdentity3();
+  var m1 = _.Matrix.MakeIdentity3();
   m1.set( 1, 2, 3, 4, 5, 6, 7, 8, 9 );
   console.log( 'm1 :', _.toStr( m1 ) );
 */
