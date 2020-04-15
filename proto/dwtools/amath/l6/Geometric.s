@@ -628,7 +628,8 @@ function angle3dCos( v1, v2 )
 /**
  * Angle betwen two vector with atan2.
  * @return {number} angle - Angle in range [ 0..+2*PI ]
- * @param {array} v1, v2 - input vectors.
+ * @param {array} v1 - input vector.
+ * @param {array} v2 - input vector.
  * @method d2Angle
  * @namespace wTools.math
  * @module Tools/math/Geometric
@@ -667,7 +668,8 @@ d2Angle.shaderChunk =
 /**
  * Angle betwen two vector with acos.
  * @return {number} angle - Angle in range [ 0..+PI ]
- * @param {array} v1, v2 - input vectors.
+ * @param {array} v1 - input vector.
+ * @param {array} v2 - input vector.
  * @method d2AngleWithCos
  * @namespace wTools.math
  * @module Tools/math/Geometric
@@ -692,7 +694,8 @@ function d2AngleWithCos( v1, v2 )
  * Angle betwen two vector with acos.
  * Unsafe because does not treat unnormal input case.
  * @return {number} angle - Angle in range [ 0..+PI ]
- * @param {array} v1, v2 - input vectors.
+ * @param {array} v1 - input vector.
+ * @param {array} v2 - input vector.
  * @method d2AngleWithCos
  * @namespace wTools.math
  * @module Tools/math/Geometric
