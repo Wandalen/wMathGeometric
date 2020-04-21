@@ -89,13 +89,17 @@ function basic( test )
 function d2PolygonIsClockwise( test )
 {
 
-  test.case = 'simple clockwise'; /* */
+  /* */
+
+  test.case = 'simple clockwise';
 
   var polygon = [ 0, 0, 10, 0, 10, 10, 0, 10 ];
   var got = _.math.d2PolygonIsClockwise( polygon );
   test.identical( got, true );
 
-  test.case = 'simple counter clockwise'; /* */
+  /* */
+
+  test.case = 'simple counter clockwise';
 
   var polygon = [ 0, 0, 0, 10, 10, 10, 10, 0 ];
   var got = _.math.d2PolygonIsClockwise( polygon );
