@@ -2,7 +2,7 @@
   "name" : "wmathgeometric",
   "version" : "0.3.44",
   "description" : "Collection of geometric math functions. Based on module MathVector.",
-  "author" : "Kostiantyn Wandalen <wanalen@willbe.so>",
+  "author" : "Kostiantyn Wandalen <wanalen@01.school>",
   "license" : "MIT",
   "main" : "proto/dwtools/amath/l6/Geometric.s",
   "files" : [ "proto/dwtools/amath/l6", "proto/dwtools/Tools.s" ],
