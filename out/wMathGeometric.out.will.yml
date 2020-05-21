@@ -2,10 +2,13 @@ format: outwillfile-2.0
 root:
   - wMathGeometric.out
 consistency:
-  ../.ex.will.yml: &ref_0
+  wMathGeometric.out.will.yml: &ref_0
+    hash: d71086e387823f12740e1fe23bf9de31
+    size: 38510
+  ../.ex.will.yml: &ref_1
     hash: 26f6ddd2571eae050f37bc877039ca8c
     size: 1759
-  ../.im.will.yml: &ref_1
+  ../.im.will.yml: &ref_2
     hash: 572416a8243c5c7c51c4de5ad7a29ce1
     size: 4743
 module:
@@ -16,19 +19,19 @@ module:
       description: Collection of geometric math functions. Based on module MathVector.
       enabled: 1
       version: 0.4.0
-      interpreters: &ref_2
+      interpreters:
         - njs >= 8.0.0
         - chrome >= 60.0.0
         - firefox >= 60.0.0
-      keywords: &ref_3
+      keywords:
         - tools
         - wTools
       license: MIT
       author: Kostiantyn Wandalen <wanalen@01.school>
-      contributors: &ref_4
+      contributors:
         - Kostiantyn Wandalen <wanalen@01.school>
       npm.name: wmathgeometric
-      npm.scripts: &ref_5
+      npm.scripts:
         test: wtest .run proto/**
         docgen: wdocgen .build proto
     path:
@@ -697,6 +700,24 @@ module:
           content: prime
         inherit:
           - files.transpile
+      exported.proto.export:
+        opts:
+          filePath: 'reflector::exported.proto.export*'
+        criterion:
+          generated: 1
+          content: proto
+          export: 1
+        inherit:
+          - files.reflect
+      exported.files.proto.export:
+        opts:
+          filePath: 'reflector::exported.files.proto.export*'
+        criterion:
+          generated: 1
+          content: proto
+          export: 1
+        inherit:
+          - files.reflect
     build:
       proto.export:
         steps:
@@ -785,8 +806,9 @@ module:
           content: proto
           export: 1
     consistency:
-      ../.ex.will.yml: *ref_0
-      ../.im.will.yml: *ref_1
+      wMathGeometric.out.will.yml: *ref_0
+      ../.ex.will.yml: *ref_1
+      ../.im.will.yml: *ref_2
   ../:
     about:
       name: wMathGeometric
@@ -794,13 +816,21 @@ module:
       description: Collection of geometric math functions. Based on module MathVector.
       enabled: 1
       version: 0.4.0
-      interpreters: *ref_2
-      keywords: *ref_3
+      interpreters:
+        - njs >= 8.0.0
+        - chrome >= 60.0.0
+        - firefox >= 60.0.0
+      keywords:
+        - tools
+        - wTools
       license: MIT
       author: Kostiantyn Wandalen <wanalen@01.school>
-      contributors: *ref_4
+      contributors:
+        - Kostiantyn Wandalen <wanalen@01.school>
       npm.name: wmathgeometric
-      npm.scripts: *ref_5
+      npm.scripts:
+        test: wtest .run proto/**
+        docgen: wdocgen .build proto
     path:
       module.willfiles:
         criterion:
@@ -1298,7 +1328,7 @@ module:
           debug: release
       reflect.proto.debug.raw:
         opts:
-          reflector: 'reflector::reflect.proto*'
+          filePath: 'reflector::reflect.proto*'
         criterion:
           tests: no.tests
           debug: debug
@@ -1308,7 +1338,7 @@ module:
           - files.reflect
       reflect.proto.release.raw:
         opts:
-          reflector: 'reflector::reflect.proto*'
+          filePath: 'reflector::reflect.proto*'
         criterion:
           tests: no.tests
           debug: release
@@ -1318,7 +1348,7 @@ module:
           - files.reflect
       reflect.proto.debug.compiled:
         opts:
-          reflector: 'reflector::reflect.proto*'
+          filePath: 'reflector::reflect.proto*'
         criterion:
           tests: no.tests
           debug: debug
@@ -1328,7 +1358,7 @@ module:
           - files.reflect
       reflect.proto.release.compiled:
         opts:
-          reflector: 'reflector::reflect.proto*'
+          filePath: 'reflector::reflect.proto*'
         criterion:
           tests: no.tests
           debug: release
@@ -1339,7 +1369,7 @@ module:
       transpile.proto.raw:
         opts:
           entry: 'path::entry.proto.no.tests'
-          reflector: 'reflector::transpile.proto.raw*'
+          filePath: 'reflector::transpile.proto.raw*'
         criterion:
           raw: raw
           debug: release
@@ -1349,7 +1379,7 @@ module:
       transpile.proto.no.tests.compiled.debug:
         opts:
           entry: 'path::entry.proto.*=1'
-          reflector: 'reflector::transpile.proto.no.tests.compiled*'
+          filePath: 'reflector::transpile.proto.no.tests.compiled*'
         criterion:
           tests: no.tests
           raw: compiled
@@ -1360,7 +1390,7 @@ module:
       transpile.proto.no.tests.compiled.release:
         opts:
           entry: 'path::entry.proto.*=1'
-          reflector: 'reflector::transpile.proto.no.tests.compiled*'
+          filePath: 'reflector::transpile.proto.no.tests.compiled*'
         criterion:
           tests: no.tests
           raw: compiled
@@ -1372,7 +1402,7 @@ module:
         opts:
           entry: 'path::entry.proto.*=1'
           external.before: '{path::out.*=1}/Main.s'
-          reflector: 'reflector::transpile.proto.only.tests.compiled*'
+          filePath: 'reflector::transpile.proto.only.tests.compiled*'
         criterion:
           tests: only.tests
           raw: compiled
@@ -1384,7 +1414,7 @@ module:
         opts:
           entry: 'path::entry.proto.*=1'
           external.before: '{path::out.*=1}/Main.s'
-          reflector: 'reflector::transpile.proto.only.tests.compiled*'
+          filePath: 'reflector::transpile.proto.only.tests.compiled*'
         criterion:
           tests: only.tests
           raw: compiled
@@ -1473,3 +1503,6 @@ module:
       ../.im.will.yml:
         hash: 572416a8243c5c7c51c4de5ad7a29ce1
         size: 4743
+      wMathGeometric.out.will.yml:
+        hash: d71086e387823f12740e1fe23bf9de31
+        size: 38510
