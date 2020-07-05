@@ -151,6 +151,7 @@ module:
           export: 1
         path:
           - ../proto
+          - ../proto/Integration.test.s
           - ../proto/dwtools
           - ../proto/dwtools/Tools.s
           - ../proto/dwtools/abase
@@ -1466,6 +1467,4 @@ module:
       ../.im.will.yml:
         hash: 572416a8243c5c7c51c4de5ad7a29ce1
         size: 4743
-      wMathGeometric.out.will.yml:
-        hash: 816743a7fc1e04ffcfca0ba949dab54e
-        size: 37403
+      wMathGeometric.out.will.yml: *ref_0
