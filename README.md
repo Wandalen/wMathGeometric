@@ -1,5 +1,5 @@
 
-# wMathGeometric [![Build Status](https://travis-ci.org/Wandalen/wMathGeometric.svg?branch=master)](https://travis-ci.org/Wandalen/wMathGeometric)
+# module::MathGeometric [![Status](https://github.com/Wandalen/wMathGeometric/workflows/Test/badge.svg)](https://github.com/Wandalen/wMathGeometric}/actions?query=workflow%3ATest)
 
 Collection of geometric math functions. Based on module MathVector.
 
