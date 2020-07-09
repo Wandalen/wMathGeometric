@@ -109,7 +109,7 @@ module:
       entry.proto.no.tests:
         criterion:
           tests: no.tests
-        path: ../proto/dwtools/amath/l6/Geometric.s
+        path: ../proto/wtools/amath/l6/Geometric.s
       entry.proto.only.tests:
         criterion:
           tests: only.tests
@@ -119,13 +119,13 @@ module:
           debug: debug
           raw: raw
           content: prime
-        path: '{path::out.*=1}/source/dwtools/amath/l6/Geometric.s'
+        path: '{path::out.*=1}/source/wtools/amath/l6/Geometric.s'
       entry.out.raw.debug.release:
         criterion:
           debug: release
           raw: raw
           content: prime
-        path: '{path::out.*=1}/source/dwtools/amath/l6/Geometric.s'
+        path: '{path::out.*=1}/source/wtools/amath/l6/Geometric.s'
       entry.out.compiled.debug.debug:
         criterion:
           debug: debug
@@ -152,16 +152,16 @@ module:
         path:
           - ../proto
           - ../proto/Integration.test.s
-          - ../proto/dwtools
-          - ../proto/dwtools/Tools.s
-          - ../proto/dwtools/abase
-          - ../proto/dwtools/amath
-          - ../proto/dwtools/amath/l6
-          - ../proto/dwtools/amath/l6/Geometric.s
-          - ../proto/dwtools/amath/l6.test
-          - ../proto/dwtools/amath/l6.test/Geometric.test.s
-          - ../proto/dwtools/amid
-          - ../proto/dwtools/atop
+          - ../proto/wtools
+          - ../proto/wtools/Tools.s
+          - ../proto/wtools/abase
+          - ../proto/wtools/amath
+          - ../proto/wtools/amath/l6
+          - ../proto/wtools/amath/l6/Geometric.s
+          - ../proto/wtools/amath/l6.test
+          - ../proto/wtools/amath/l6.test/Geometric.test.s
+          - ../proto/wtools/amid
+          - ../proto/wtools/atop
     submodule:
       wTools:
         path: 'npm:///wTools'
@@ -888,7 +888,7 @@ module:
       entry.proto.no.tests:
         criterion:
           tests: no.tests
-        path: proto/dwtools/amath/l6/Geometric.s
+        path: proto/wtools/amath/l6/Geometric.s
       entry.proto.only.tests:
         criterion:
           tests: only.tests
@@ -898,13 +898,13 @@ module:
           debug: debug
           raw: raw
           content: prime
-        path: '{path::out.*=1}/source/dwtools/amath/l6/Geometric.s'
+        path: '{path::out.*=1}/source/wtools/amath/l6/Geometric.s'
       entry.out.raw.debug.release:
         criterion:
           debug: release
           raw: raw
           content: prime
-        path: '{path::out.*=1}/source/dwtools/amath/l6/Geometric.s'
+        path: '{path::out.*=1}/source/wtools/amath/l6/Geometric.s'
       entry.out.compiled.debug.debug:
         criterion:
           debug: debug
