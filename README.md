@@ -6,5 +6,5 @@ Collection of geometric math functions. Based on module MathVector.
 ## Try out
 ```
 npm install
-node sample/Sample.js
+node sample/Sample.s
 ```
