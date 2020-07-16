@@ -16,7 +16,7 @@ if( typeof module !== 'undefined' )
 
 //
 
-var _ = _global_.wTools;
+let _ = _global_.wTools;
 
 // --
 // samples
@@ -372,7 +372,7 @@ d2Angle.experimental = 1;
 // declare
 // --
 
-var Self =
+let Self =
 {
 
   name : 'Tools.Math.Geometric',
