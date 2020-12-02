@@ -1,4 +1,5 @@
-( function _Geometric_test_s_() {
+( function _Geometric_test_s_()
+{
 
 'use strict';
 
@@ -42,14 +43,14 @@ var samples =
 
     [ 7, 9, 4, 8, 8, 3, 4, 0 ],
 
-    [ 0, 0 , 0, 2, 0, 0, 2, 0 ],
-    [ 0, 0 , 2, 2, 2, 2, 4, 0 ],
+    [ 0, 0, 0, 2, 0, 0, 2, 0 ],
+    [ 0, 0, 2, 2, 2, 2, 4, 0 ],
     [ 7, 4, 6, 6, 7, 4, 4, 4 ],
-/*
-    [ 0, 0, 2, 2, 2, 2, 4, 4 ], // same
-    [ 0, 0, 0, 0, 2, 2, 4, 4 ], // singular
-    [ 0, 0, 2, 2, 2, 1, 4, 3 ], // parallel
-*/
+    /*
+        [ 0, 0, 2, 2, 2, 2, 4, 4 ], // same
+        [ 0, 0, 0, 0, 2, 2, 4, 4 ], // singular
+        [ 0, 0, 2, 2, 2, 1, 4, 3 ], // parallel
+    */
 
   ],
 
@@ -154,12 +155,12 @@ function d2LineGeneraEqPointDistance( test )
     var l1 = _.math.d2LineGeneralEqWithPoints( sample.line.slice( 0, 2 ), sample.line.slice( 2, 4 ) );
 
     if( sample.points )
-    for( var i = 0 ; i < sample.points.length / 2 ; i++ )
+    for( let i = 0 ; i < sample.points.length / 2 ; i++ )
     {
       _testSample.call( this, l1, sample.line, sample.points.slice( i*2, i*2+2 ) );
     }
 
-    for( var i = 0 ; i < 32 ; i++ )
+    for( let i = 0; i < 32 ; i++ )
     {
       // var p = _.longFillTimes( [], 2 ).map( function(){ return Math.floor( Math.random() * 10 ) } );
       var p = _.longFill( [], undefined, 2 ).map( function(){ return Math.floor( Math.random() * 10 ) } );
@@ -184,11 +185,11 @@ function d2linearEquationSolve( test )
   var accuracy = test.accuracy;
   var samples = self.samples.matrix2Eq;
 
-/*
-  var m1 = _.Matrix.MakeIdentity3();
-  m1.set( 1, 2, 3, 4, 5, 6, 7, 8, 9 );
-  console.log( 'm1 :', _.toStr( m1 ) );
-*/
+  /*
+    var m1 = _.Matrix.MakeIdentity3();
+    m1.set( 1, 2, 3, 4, 5, 6, 7, 8, 9 );
+    console.log( 'm1 :', _.toStr( m1 ) );
+  */
 
   function testSample( sample )
   {
@@ -210,77 +211,77 @@ function d2linearEquationSolve( test )
 
 //
 
-function pairPairIntersectionPoint( test )
-{
-  var self = this;
-  var accuracy = test.accuracy;
-  var samples = self.samples.pair4;
+// function pairPairIntersectionPoint( test )
+// {
+//   var self = this;
+//   var accuracy = test.accuracy;
+//   var samples = self.samples.pair4;
 
-  function testSample( sample )
-  {
+//   function testSample( sample )
+//   {
 
-    var pair1 = [ sample.slice( 0, 2 ), sample.slice( 2, 4 ) ];
-    var pair2 = [ sample.slice( 4, 6 ), sample.slice( 6, 8 ) ];
+//     var pair1 = [ sample.slice( 0, 2 ), sample.slice( 2, 4 ) ];
+//     var pair2 = [ sample.slice( 4, 6 ), sample.slice( 6, 8 ) ];
 
-    logger.log( 'pair1', _.toStr( pair1, { levels : 9 } ) );
-    logger.log( 'pair2', _.toStr( pair1, { levels : 9 } ) );
+//     logger.log( 'pair1', _.toStr( pair1, { levels : 9 } ) );
+//     logger.log( 'pair2', _.toStr( pair1, { levels : 9 } ) );
 
-    var eq1 = _.math.d2LineGeneralEqWithPoints.apply( _, pair1 );
-    var eq2 = _.math.d2LineGeneralEqWithPoints.apply( _, pair2 );
-    var a = _.math.d2LineLineGeneralEqIntersection( eq1, eq2 );
-    var b = _.math.pairPairIntersectionPoint( pair1, pair2 );
+//     var eq1 = _.math.d2LineGeneralEqWithPoints.apply( _, pair1 );
+//     var eq2 = _.math.d2LineGeneralEqWithPoints.apply( _, pair2 );
+//     var a = _.math.d2LineLineGeneralEqIntersection( eq1, eq2 );
+//     var b = _.math.pairPairIntersectionPoint( pair1, pair2 );
 
-    var distance1 = _.avector.distance.apply( undefined, pair1 );
-    var distance2 = _.avector.distance.apply( undefined, pair2 );
-    var areParallel = _.avector.areParallel( _.avector.sub.apply( undefined, pair1.slice() ), _.avector.sub.apply( undefined, pair2.slice() ) );
+//     var distance1 = _.avector.distance.apply( undefined, pair1 );
+//     var distance2 = _.avector.distance.apply( undefined, pair2 );
+//     var areParallel = _.avector.areParallel( _.avector.sub.apply( undefined, pair1.slice() ), _.avector.sub.apply( undefined, pair2.slice() ) );
 
-    if( !areParallel && distance1 > 0 && distance2 > 0 )
-    if( a[ 0 ] === -Infinity )
-    {
-      var eq1 = _.math.d2LineGeneralEqWithPoints.apply( _, pair1 );
-      var eq2 = _.math.d2LineGeneralEqWithPoints.apply( _, pair2 );
-      var a = _.math.d2LineLineGeneralEqIntersection( eq1, eq2 );
-      var b = _.math.pairPairIntersectionPoint( pair1, pair2 );
+//     if( !areParallel && distance1 > 0 && distance2 > 0 )
+//     if( a[ 0 ] === -Infinity )
+//     {
+//       var eq1 = _.math.d2LineGeneralEqWithPoints.apply( _, pair1 );
+//       var eq2 = _.math.d2LineGeneralEqWithPoints.apply( _, pair2 );
+//       var a = _.math.d2LineLineGeneralEqIntersection( eq1, eq2 );
+//       var b = _.math.pairPairIntersectionPoint( pair1, pair2 );
 
-      var distance1 = _.avector.distance.apply( undefined, pair1 );
-      var distance2 = _.avector.distance.apply( undefined, pair2 );
-      var areParallel = _.avector.areParallel( _.avector.sub.apply( undefined, pair1.slice() ), _.avector.sub.apply( undefined, pair2.slice() ) );
-    }
+//       var distance1 = _.avector.distance.apply( undefined, pair1 );
+//       var distance2 = _.avector.distance.apply( undefined, pair2 );
+//       var areParallel = _.avector.areParallel( _.avector.sub.apply( undefined, pair1.slice() ), _.avector.sub.apply( undefined, pair2.slice() ) );
+//     }
 
-    if( !areParallel && distance1 > 0 && distance2 > 0 )
-    test.equivalent( a, b );
+//     if( !areParallel && distance1 > 0 && distance2 > 0 )
+//     test.equivalent( a, b );
 
-  }
+//   }
 
-  for( var s = 0 ; s < samples.length ; s++ )
-  {
+//   for( var s = 0 ; s < samples.length ; s++ )
+//   {
 
-    var sample = samples[ s ];
-    testSample.call( this, sample );
+//     var sample = samples[ s ];
+//     testSample.call( this, sample );
 
-  }
+//   }
 
-/*
-  xxx problem if
-  var pair1 =
-  [
-    [ 0, 1 ],
-    [ 1, 1 ]
-  ]
-  var pair2 =
-  [
-    [ 1, 0 ],
-    [ 0, 0 ]
-  ]
-*/
+//   /*
+//     xxx problem if
+//     var pair1 =
+//     [
+//       [ 0, 1 ],
+//       [ 1, 1 ]
+//     ]
+//     var pair2 =
+//     [
+//       [ 1, 0 ],
+//       [ 0, 0 ]
+//     ]
+//   */
 
-  // for( var s = 0 ; s < 1000 ; s++ )
-  // {
-  //   var sample = _.longFillTimes( [] , 8 ).map( function(){ return Math.floor( Math.random() * 2 ) } );
-  //   testSample.call( this, sample );
-  // }
+//   // for( var s = 0 ; s < 1000 ; s++ )
+//   // {
+//   //   var sample = _.longFillTimes( [] , 8 ).map( function(){ return Math.floor( Math.random() * 2 ) } );
+//   //   testSample.call( this, sample );
+//   // }
 
-}
+// }
 
 //
 
@@ -349,11 +350,11 @@ function d2Angle( test )
 
           var o = functions[ f ]( sample1, sample2 );
           console.log( _.strForCall( f, [ sample1, sample2 ], o, { precision : 3 } ) );
-/*
-          var expected = test.equivalent( isNaN( o ) ||  Math.abs( o ) < 2*3.15, true );
-          if( !expected )
-          o = functions[ f ]( sample1, sample2 );
-*/
+          /*
+                    var expected = test.equivalent( isNaN( o ) ||  Math.abs( o ) < 2*3.15, true );
+                    if( !expected )
+                    o = functions[ f ]( sample1, sample2 );
+          */
         }
 
       }
