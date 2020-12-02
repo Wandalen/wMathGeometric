@@ -388,16 +388,16 @@ let Self =
   tests :
   {
 
-    basic,
+    // basic, /* xxx : Moved */
 
-    d2PolygonIsClockwise,
+    // d2PolygonIsClockwise, /* xxx : Moved */
 
-    d2LineGeneralEqWithPoints,
-    d2LineGeneraEqPointDistance,
+    // d2LineGeneralEqWithPoints, /* xxx : Moved */
+    // d2LineGeneraEqPointDistance, /* xxx : Moved */
 
     // d2LineLineGeneralEqIntersection, /* qqq : implement */
     d2linearEquationSolve,
-    pairPairIntersectionPoint,
+    // pairPairIntersectionPoint, /* xxx : Moved */
 
     d2Angle,
 

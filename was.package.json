@@ -17,6 +17,6 @@
     "url" : "https ://github.com/Wandalen/wMathGeometric/issues"
   },
   "dependencies" : { "wTools" : "", "wmathscalar" : "", "wmathvector" : "" },
-  "devDependencies" : { "wTesting" : "", "wmathgeometric" : "file:." },
+  "devDependencies" : { "wTesting" : "", "wmathgeometric" : "file:.", "eslint" : "7.1.0" },
   "keywords" : [ "wTools" ]
 }
