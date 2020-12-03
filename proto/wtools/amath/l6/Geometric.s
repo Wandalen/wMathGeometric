@@ -1,4 +1,5 @@
-(function _Geometric_s_() {
+(function _Geometric_s_()
+{
 
 'use strict';
 
@@ -50,8 +51,8 @@ _.assert( _.objectIs( avector ) );
 function eachEdgeOfCube( onEdge )
 {
 
-  let axis = [0, 1, 2];
-  let sign = [1, 1, 1];
+  let axis = [ 0, 1, 2 ];
+  let sign = [ 1, 1, 1 ];
   let index = 0;
 
   for( axis[ 0 ] = 0 ; axis[ 0 ] < 3 ; axis[ 0 ]++ )
@@ -146,7 +147,6 @@ function eachPlaneOfCube( onPlane )
 
 //   return result;
 // }
-
 
 
 // d2LineGeneralEqWithPoints.shaderChunk =
@@ -610,7 +610,12 @@ function angle3d( v1, v2 )
 function angle3dAtan( v1, v2 )
 {
 
-  return Math.atan2( v1.slice().cross( v2 ).length(), v1.dot( v2 ) );
+  return Math.atan2(
+    v1.slice()
+    .cross( v2 )
+    .length(),
+    v1.dot( v2 )
+  );
 
 }
 
@@ -681,7 +686,7 @@ function d2AngleWithCos( v1, v2 )
   let m1 = _sqrt( _sqr( v1[ 0 ] ) + _sqr( v1[ 1 ] ) );
   let m2 = _sqrt( _sqr( v2[ 0 ] ) + _sqr( v2[ 1 ] ) );
   let m = m1*m2;
-  if( m <= this.accuracy ) return 0;
+  if( m <= this.accuracy )return 0;
   let d = v1[ 0 ]*v2[ 0 ] + v1[ 1 ]*v2[ 1 ] ;
 
   debugger;
@@ -909,7 +914,7 @@ function rayRayIntersectionFactors( r1, r2 )
   _.assert( r1[ 0 ].length === 2, 'implemented only for d2' );
   _.assert( r2[ 0 ].length === 2, 'implemented only for d2' );
 
-  let dorigin = avector.sub( r2[ 0 ].slice() , r1[ 0 ] );
+  let dorigin = avector.sub( r2[ 0 ].slice(), r1[ 0 ] );
 
   let y = [];
   y[ 0 ] = + dorigin[ 0 ];
@@ -994,7 +999,11 @@ rayRayIntersectionPoint.shaderChunk =
 function rayRayIntersectionPointAccurate( r1, r2 )
 {
   let closestPoints = this.rayRayIntersectionPoints( r1, r2 );
-  return closestPoints[ 0 ].slice().add( closestPoints[ 1 ] ).mul( 0.5 );
+  return ( closestPoints[ 0 ]
+  .slice()
+  .add( closestPoints[ 1 ] )
+  .mul( 0.5 )
+  )
 }
 
 rayRayIntersectionPointAccurate.shaderChunk =
@@ -1086,7 +1095,7 @@ function barycentricToPosArray( result, poly, barycentric )
   result.copy( poly[ 0 ] ).sub( poly[ 0 ] );
   for( let i = 0 ; i < poly.length ; i++ )
   {
-    let m = poly[i].slice().mul( barycentric[i] );
+    let m = poly[ i ].slice().mul( barycentric[ i ] );
     result.add( m );
   }
   return result;
@@ -1104,22 +1113,22 @@ function inConvexPoly2d( poly, pos, barycentric )
   }
 
   let i = 0;
-  let side = getSide( poly[poly.length-1], poly[i], pos );
+  let side = getSide( poly[ poly.length-1 ], poly[ i ], pos );
   for( i = 1; i < poly.length; i++ )
   {
     let wasSide = side;
-    side = getSide( poly[i-1], poly[i], pos )
-    if( side==0 ) break
-    if( wasSide*side < 0 ) return false;
+    side = getSide( poly[ i-1 ], poly[ i ], pos )
+    if( side === 0 )break
+    if( wasSide*side < 0 )return false;
   }
 
   i = 0;
-  let d = pos.distanceTo( poly[i] );
+  let d = pos.distanceTo( poly[ i ] );
   let td = d;
   let mind = d;
   for( i = 1; i < poly.length; i++ )
   {
-    let d = pos.distanceTo( poly[i] );
+    let d = pos.distanceTo( poly[ i ] );
     td += d;
     if( mind > d ) mind = d;
   }
@@ -1127,7 +1136,7 @@ function inConvexPoly2d( poly, pos, barycentric )
   let nd = 0;
   for( i = 0; i < poly.length; i++ )
   {
-    let d = pos.distanceTo( poly[i] );
+    let d = pos.distanceTo( poly[ i ] );
     let p = mind / d;
     //let p = d / ( d - mind );
     if( d < 0.0000001 ) p = 1;
@@ -1136,10 +1145,10 @@ function inConvexPoly2d( poly, pos, barycentric )
 
   for( i = 0; i < poly.length; i++ )
   {
-    let d = pos.distanceTo( poly[i] );
+    let d = pos.distanceTo( poly[ i ] );
     let p = mind / d;
     if( d < 0.0000001 ) p = 1;
-    barycentric[i] = p / nd;
+    barycentric[ i ] = p / nd;
   }
   return true;
 
@@ -1165,7 +1174,8 @@ function inConvexPoly2d( poly, pos, barycentric )
 
 //
 
-function inTri( tri, pos, barycentric ) {
+function inTri( tri, pos, barycentric )
+{
 
   let p0 = pos.slice();
   let p1 = tri[ 1 ].slice();
@@ -1199,12 +1209,12 @@ function triSphereSmallest( tri )
 
   result.centre = tri[ 0 ].slice();
   for( let i = 1 ; i < tri.length ; i++ )
-  result.centre.add( tri[i] )
+  result.centre.add( tri[ i ] )
   result.centre.mul( 1/tri.length );
 
   for( let i = 0 ; i < tri.length ; i++ )
   {
-    let cd = tri[i].distanceToSquared( result.centre )
+    let cd = tri[ i ].distanceToSquared( result.centre )
     if( d < cd ) d = cd;
   }
   result.radius = _sqrt( d );
@@ -1213,7 +1223,8 @@ function triSphereSmallest( tri )
 
 //
 
-function triCentre( tri ) {
+function triCentre( tri )
+{
 
   let p1 = tri[ 1 ].slice().sub( tri[ 0 ] );
   let p2 = tri[ 2 ].slice().sub( tri[ 0 ] );
@@ -1237,7 +1248,7 @@ function triCentre( tri ) {
   p1.mul( 0.5 );
   p2.mul( 0.5 );
 
-  let result = pairPairIntersectionPoint( [p1, n1], [p2, n2] );
+  let result = pairPairIntersectionPoint( [ p1, n1 ], [ p2, n2 ] );
   //let d = [tri[ 0 ].distanceTo( result ), tri[ 1 ].distanceTo( result ), tri[ 2 ].distanceTo( result )];
   //console.log( d );
   return result;
@@ -1252,10 +1263,10 @@ function fillSpace( o )
   let self = this;
   o = o || Object.create( null );
 
-  if( o.constructors === undefined ) throw _.err( 'fillSpace :', '"o.constructor" is needed' );
+  if( o.constructors === undefined )throw _.err( 'fillSpace :', '"o.constructor" is needed' );
   if( o.args === undefined ) o.args = [];
 
-  if( !_.arrayIs( o.args ) ) throw _.err( 'fillSpace :', 'o.args must be array' );
+  if( !_.arrayIs( o.args ) )throw _.err( 'fillSpace :', 'o.args must be array' );
 
   if( o.radius === undefined ) o.radius = 100;
   if( o.gap === undefined ) o.gap = 0;
@@ -1284,20 +1295,20 @@ function fillSpace( o )
     do
     {
       debugger;
-      _.anrray.randomInRadius( object.position , o.radius );
+      _.anrray.randomInRadius( object.position, o.radius );
 
       let goodPosition = 1;
       for( let a = 0 ; a < objects.length ; a++ )
       {
         let aobject = objects[ a ];
-        if( aobject === object ) continue;
+        if( aobject === object )continue;
 
         if( !aobject.boundingSphere ) aobject.computeBoundingSphere();
 
         let pos2 = _.sphere.centerGet( aobject.boundingSphere );
         let radius2 = _.sphere.radiusGet( aobject.boundingSphere );
 
-        if( !_.numberIsFinite( radius2 ) ) break;
+        if( !_.numberIsFinite( radius2 ) )break;
 
         let distance = pos1.distanceToSquared( pos2 );
         if( distance < _sqr( radius1 + radius2 + o.gap ) )
@@ -1387,8 +1398,8 @@ let Extension =
 
   // iterator
 
-  eachEdgeOfCube,//
-  eachPlaneOfCube,//
+  eachEdgeOfCube, //
+  eachPlaneOfCube, //
 
   // d2
 
@@ -1455,7 +1466,7 @@ let Extension =
 
   // linear equation
 
-  d2linearEquationSolve,//Matrix.solveLinear?
+  d2linearEquationSolve, //Matrix.solveLinear?
   linearEquationSolveExternal,
   linearEquationSolve,
 
@@ -1469,12 +1480,12 @@ let Extension =
 
   // other
 
-  barycentricToPosArray,//triangle.
-  inConvexPoly2d,//convexPolygon.inPolygon?
+  barycentricToPosArray, //triangle.
+  inConvexPoly2d, //convexPolygon.inPolygon?
   // distanceToTri,//triangle.pointDistance
-  inTri,//triangle.inTri
-  triCentre,//triangle.inTriCentre
-  triSphereSmallest,//trianle.sphereSmallest?
+  inTri, //triangle.inTri
+  triCentre, //triangle.inTriCentre
+  triSphereSmallest, //trianle.sphereSmallest?
 
 };
 
