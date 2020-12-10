@@ -39,7 +39,7 @@ let _dot = avector.dot;
 let _mag = avector.mag;
 let _magSqr = avector.magSqr;
 
-let Self = _.math = _.math || _.mapExtend( null, _.mapProperties( Math, { own : 1, enumerable : 0 } ) );
+let Self = _.math = _.math || _.mapExtend( null, _.property.of( Math, { onlyOwn : 1, onlyEnumerable : 0 } ) );
 
 _.assert( _.math.cos === Math.cos );
 _.assert( _.objectIs( avector ) );
