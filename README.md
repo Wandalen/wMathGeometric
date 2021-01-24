@@ -8,7 +8,7 @@ Collection of geometric math functions. Based on module MathVector.
 git clone https://github.com/Wandalen/wMathGeometric
 cd wMathGeometric
 npm install
-node sample/Sample.s
+node sample/trivial/Sample.s
 ```
 
 ## To add to your project
