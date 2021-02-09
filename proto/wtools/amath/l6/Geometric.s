@@ -1233,16 +1233,16 @@ function triCentre( tri )
   //let p1 = new THREE.vector2( 2, 0 );
   //let p2 = new THREE.vector2( 0, 1 );
 
-  if( p1[ 2 ] !== undefined )
+  if( p1[ 2 ] === undefined )
+  {
+    n1 = p1.slice().set( p1[ 1 ], -p1[ 0 ] );
+    n2 = p2.slice().set( p2[ 1 ], -p2[ 0 ] );
+  }
+  else
   {
     n = p1.slice().cross( p2 );
     n1 = p1.slice().cross( n );
     n2 = p2.slice().cross( n );
-  }
-  else
-  {
-    n1 = p1.slice().set( p1[ 1 ], -p1[ 0 ] );
-    n2 = p2.slice().set( p2[ 1 ], -p2[ 0 ] );
   }
 
   p1.mul( 0.5 );
