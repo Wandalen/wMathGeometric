@@ -1363,10 +1363,7 @@ function fillSpace( o )
 
 function injectChunks( routines )
 {
-
-  _global_.SRT = _global_.SRT || Object.create( null );
-  _global_.SRT.gl = _global_.SRT.gl || Object.create( null );
-  var Chunks = SRT.gl.Chunks = SRT.gl.Chunks || Object.create( null );
+  let Chunks = _._chunk = _._chunk || Object.create( null );
 
   for( let r in routines )
   {
@@ -1383,7 +1380,9 @@ function injectChunks( routines )
     let shaderChunk = '';
     shaderChunk += '\n' + routine.shaderChunk + '\n';
 
-    Chunks[ r ] = shaderChunk;
+    let chunkName = routine.shaderChunkName || r;
+
+    Chunks[ chunkName ] = shaderChunk;
 
   }
 
