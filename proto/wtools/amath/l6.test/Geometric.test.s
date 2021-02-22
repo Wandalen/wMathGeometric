@@ -188,7 +188,7 @@ function d2linearEquationSolve( test )
   /*
     var m1 = _.Matrix.MakeIdentity3();
     m1.set( 1, 2, 3, 4, 5, 6, 7, 8, 9 );
-    console.log( 'm1 :', _.toStr( m1 ) );
+    console.log( 'm1 :', _.entity.exportString( m1 ) );
   */
 
   function testSample( sample )
@@ -223,8 +223,8 @@ function d2linearEquationSolve( test )
 //     var pair1 = [ sample.slice( 0, 2 ), sample.slice( 2, 4 ) ];
 //     var pair2 = [ sample.slice( 4, 6 ), sample.slice( 6, 8 ) ];
 
-//     logger.log( 'pair1', _.toStr( pair1, { levels : 9 } ) );
-//     logger.log( 'pair2', _.toStr( pair1, { levels : 9 } ) );
+//     logger.log( 'pair1', _.entity.exportString( pair1, { levels : 9 } ) );
+//     logger.log( 'pair2', _.entity.exportString( pair1, { levels : 9 } ) );
 
 //     var eq1 = _.math.d2LineGeneralEqWithPoints.apply( _, pair1 );
 //     var eq2 = _.math.d2LineGeneralEqWithPoints.apply( _, pair2 );
