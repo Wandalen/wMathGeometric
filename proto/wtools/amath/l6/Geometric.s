@@ -689,7 +689,6 @@ function d2AngleWithCos( v1, v2 )
   if( m <= this.accuracy )return 0;
   let d = v1[ 0 ]*v2[ 0 ] + v1[ 1 ]*v2[ 1 ] ;
 
-  debugger;
   return Math.acos( _.math.clamp( d / m, -1, 1 ) );
 }
 
@@ -755,7 +754,6 @@ d2linearEquationSolve.shaderChunk =
 function linearEquationSolveExternal( m, y )
 {
 
-  debugger;
   let lu = numeric.LU( m );
   let x = numeric.LUsolve( lu, y );
 
@@ -893,8 +891,6 @@ rayFromPair.shaderChunk =
 
 function rayRayParallel( src1Ray, src2Ray, accuracySqr )
 {
-  debugger;
-
   _.assert( src1Ray.length === 3 );
   _.assert( src2Ray.length === 3 );
   _.assert( arguments.length === 2 || arguments.length === 3 );
@@ -1294,7 +1290,6 @@ function fillSpace( o )
 
     do
     {
-      debugger;
       _.anrray.randomInRadius( object.position, o.radius );
 
       let goodPosition = 1;
