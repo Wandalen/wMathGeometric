@@ -25,7 +25,7 @@ if( typeof module !== 'undefined' )
 
 //
 
-let _ = _global_.wTools;
+const _ = _global_.wTools;
 let _min = Math.min;
 let _max = Math.max;
 let _arraySlice = Array.prototype.slice;
@@ -39,7 +39,7 @@ let _dot = avector.dot;
 let _mag = avector.mag;
 let _magSqr = avector.magSqr;
 
-let Self = _.math = _.math || _.mapExtend( null, _.property.of( Math, { onlyOwn : 1, onlyEnumerable : 0 } ) );
+const Self = _.math = _.math || _.mapExtend( null, _.property.of( Math, { onlyOwn : 1, onlyEnumerable : 0 } ) );
 
 _.assert( _.math.cos === Math.cos );
 _.assert( _.objectIs( avector ) );
