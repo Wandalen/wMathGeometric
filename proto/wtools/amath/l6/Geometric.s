@@ -26,11 +26,11 @@ if( typeof module !== 'undefined' )
 //
 
 const _ = _global_.wTools;
-let _min = Math.min;
-let _max = Math.max;
+const _min = Math.min;
+const _max = Math.max;
 let _arraySlice = Array.prototype.slice;
 let _sqrt = Math.sqrt;
-let _sqr = _.math.sqr;
+const _sqr = _.math.sqr;
 let _sign = _.math.sign;
 
 let avector = _.avector;
