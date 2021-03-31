@@ -1,13 +1,14 @@
 {
   "name": "wmathgeometric",
-  "version": "0.3.114",
+  "version": "0.3.115",
   "description": "Collection of geometric math functions. Based on module MathVector.",
   "author": "Kostiantyn Wandalen <wanalen@01.school>",
   "license": "MIT",
   "main": "proto/wtools/amath/l6/Geometric.s",
   "files": [
     "proto/wtools/amath/l6",
-    "proto/wtools/Tools.s"
+    "proto/wtools/Tools.s",
+    "proto/node_modules"
   ],
   "scripts": {
     "test": "wtest .run 'proto/**' rapidity:-3",
@@ -27,8 +28,7 @@
   },
   "devDependencies": {
     "eslint": "7.1.0",
-    "wTesting": "delta",
-    "wmathgeometric": "file:."
+    "wTesting": "delta"
   },
   "keywords": [
     "wTools"
