@@ -2,15 +2,12 @@ format: outwillfile-2.0
 root:
   - wMathGeometric.out
 consistency:
-  wMathGeometric.out.will.yml: &ref_0
-    hash: bbe51c4acbdc59e647eaec698c0ea2a2
-    size: 37850
-  ../.ex.will.yml: &ref_1
+  ../.ex.will.yml: &ref_0
     hash: aafe7d18e0f08c4f3ab0825014d80d3c
     size: 1760
-  ../.im.will.yml: &ref_2
-    hash: 98318f73b18f95fcf77f5e0460d0afd3
-    size: 4850
+  ../.im.will.yml: &ref_1
+    hash: c40e0bf612a9ae1983338b83afccebf5
+    size: 4912
 module:
   wMathGeometric.out:
     about:
@@ -19,19 +16,19 @@ module:
       description: Collection of geometric math functions. Based on module MathVector.
       enabled: 1
       version: 0.4.0
-      interpreters:
+      interpreters: &ref_2
         - njs >= 10.0.0
         - chrome >= 60.0.0
         - firefox >= 60.0.0
-      keywords:
+      keywords: &ref_3
         - tools
         - wTools
       license: MIT
       author: Kostiantyn Wandalen <wanalen@01.school>
-      contributors:
+      contributors: &ref_4
         - Kostiantyn Wandalen <wanalen@01.school>
       npm.name: wmathgeometric
-      npm.scripts:
+      npm.scripts: &ref_5
         test: wtest .run proto/**
         docgen: wdocgen .build proto
     path:
@@ -62,7 +59,7 @@ module:
       download:
         criterion:
           predefined: 1
-        path: ../
+        path: ..
       repository:
         path: 'git+https:///github.com/Wandalen/wMathGeometric.git'
       origins:
@@ -139,6 +136,10 @@ module:
           raw: compiled
           content: prime
         path: '{path::out.*=}/source/Index.s'
+      npm.proto.entry:
+        path:
+          - ../proto/wtools/amath/l6/Geometric.s
+          - ../proto/node_modules/wmathgeometric
       exported.dir.proto.export:
         criterion:
           generated: 1
@@ -691,24 +692,6 @@ module:
           content: prime
         inherit:
           - files.transpile
-      exported.proto.export:
-        opts:
-          filePath: 'reflector::exported.proto.export'
-        criterion:
-          generated: 1
-          content: proto
-          export: 1
-        inherit:
-          - files.reflect
-      exported.files.proto.export:
-        opts:
-          filePath: 'reflector::exported.files.proto.export'
-        criterion:
-          generated: 1
-          content: proto
-          export: 1
-        inherit:
-          - files.reflect
     build:
       proto.export:
         steps:
@@ -797,9 +780,8 @@ module:
           content: proto
           export: 1
     consistency:
-      wMathGeometric.out.will.yml: *ref_0
-      ../.ex.will.yml: *ref_1
-      ../.im.will.yml: *ref_2
+      ../.ex.will.yml: *ref_0
+      ../.im.will.yml: *ref_1
   ../:
     about:
       name: wMathGeometric
@@ -807,21 +789,13 @@ module:
       description: Collection of geometric math functions. Based on module MathVector.
       enabled: 1
       version: 0.4.0
-      interpreters:
-        - njs >= 10.0.0
-        - chrome >= 60.0.0
-        - firefox >= 60.0.0
-      keywords:
-        - tools
-        - wTools
+      interpreters: *ref_2
+      keywords: *ref_3
       license: MIT
       author: Kostiantyn Wandalen <wanalen@01.school>
-      contributors:
-        - Kostiantyn Wandalen <wanalen@01.school>
+      contributors: *ref_4
       npm.name: wmathgeometric
-      npm.scripts:
-        test: wtest .run proto/**
-        docgen: wdocgen .build proto
+      npm.scripts: *ref_5
     path:
       module.willfiles:
         criterion:
@@ -850,7 +824,7 @@ module:
       download:
         criterion:
           predefined: 1
-        path: ./
+        path: .
       repository:
         path: 'git+https:///github.com/Wandalen/wMathGeometric.git'
       origins:
@@ -927,6 +901,10 @@ module:
           raw: compiled
           content: prime
         path: '{path::out.*=}/source/Index.s'
+      npm.proto.entry:
+        path:
+          - proto/wtools/amath/l6/Geometric.s
+          - proto/node_modules/wmathgeometric
     submodule:
       wTools:
         path: 'npm:///wTools'
@@ -1481,6 +1459,5 @@ module:
         hash: aafe7d18e0f08c4f3ab0825014d80d3c
         size: 1760
       ../.im.will.yml:
-        hash: 98318f73b18f95fcf77f5e0460d0afd3
-        size: 4850
-      wMathGeometric.out.will.yml: *ref_0
+        hash: c40e0bf612a9ae1983338b83afccebf5
+        size: 4912
