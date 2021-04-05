@@ -69,8 +69,8 @@ path:
       raw: compiled
       content: prime
   npm.proto.entry:
-    - /pro/module/wMathGeometric/proto/wtools/amath/l6/Geometric.s
-    - /pro/module/wMathGeometric/proto/node_modules/wmathgeometric
+    - proto/wtools/amath/l6/Geometric.s
+    - proto/node_modules/wmathgeometric
 reflector:
   reflect.proto:
     inherit: predefined.*
