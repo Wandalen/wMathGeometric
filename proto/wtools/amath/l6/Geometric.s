@@ -42,7 +42,7 @@ let _magSqr = avector.magSqr;
 const Self = _.math = _.math || _.props.extend( null, _.props.of( Math, { onlyOwn : 1, onlyEnumerable : 0 } ) );
 
 _.assert( _.math.cos === Math.cos );
-_.assert( _.objectIs( avector ) );
+_.assert( _.object.isBasic( avector ) );
 
 // --
 // iterator
