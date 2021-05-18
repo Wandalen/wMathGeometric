@@ -1271,7 +1271,7 @@ function fillSpace( o )
   if( o.numberOfSamples === undefined ) o.numberOfSamples = 1;
   if( o.randomConstructor === undefined ) o.randomConstructor = 1;
 
-  o.constructors = _.arrayAs( o.constructor );
+  o.constructors = _.array.as( o.constructor );
 
   let result = o.container;
   if( result === undefined ) result = [];
