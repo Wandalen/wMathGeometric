@@ -1,22 +1,37 @@
 {
-  "name" : "wmathgeometric",
-  "version" : "0.3.134",
-  "description" : "Collection of geometric math functions. Based on module MathVector.",
-  "author" : "Kostiantyn Wandalen <wanalen@01.school>",
-  "license" : "MIT",
-  "main" : "proto/node_modules/wmathgeometric",
-  "files" : [ "proto/wtools/amath/l6", "proto/node_modules", "proto/node_modules/Tools", "proto/node_modules/wmathgeometric" ],
-  "scripts" : { "test" : "wtest .run 'proto/**' rapidity:-3", "docgen" : "wdocgen .build proto" },
-  "repository" :
-  {
-    "type" : "git",
-    "url" : "https ://github.com/Wandalen/wMathGeometric.git"
+  "name": "wmathgeometric",
+  "version": "0.3.135",
+  "description": "Collection of geometric math functions. Based on module MathVector.",
+  "author": "Kostiantyn Wandalen <wanalen@01.school>",
+  "license": "MIT",
+  "main": "proto/node_modules/wmathgeometric",
+  "files": [
+    "proto/wtools/amath/l6",
+    "proto/node_modules",
+    "proto/node_modules/Tools",
+    "proto/node_modules/wmathgeometric"
+  ],
+  "scripts": {
+    "test": "wtest .run 'proto/**' rapidity:-3",
+    "docgen": "wdocgen .build proto"
   },
-  "bugs" :
-  {
-    "url" : "https ://github.com/Wandalen/wMathGeometric/issues"
+  "repository": {
+    "type": "git",
+    "url": "https ://github.com/Wandalen/wMathGeometric.git"
   },
-  "dependencies" : { "wTools" : "", "wmathscalar" : "", "wmathvector" : "" },
-  "devDependencies" : { "wTesting" : "", "eslint" : "7.1.0" },
-  "keywords" : [ "wTools" ]
+  "bugs": {
+    "url": "https ://github.com/Wandalen/wMathGeometric/issues"
+  },
+  "dependencies": {
+    "wTools": "",
+    "wmathvector": "",
+    "wmathscalar": ""
+  },
+  "devDependencies": {
+    "wTesting": "",
+    "eslint": "7.1.0"
+  },
+  "keywords": [
+    "wTools"
+  ]
 }
