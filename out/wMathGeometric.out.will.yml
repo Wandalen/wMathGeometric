@@ -3,8 +3,8 @@ root:
   - wMathGeometric.out
 consistency:
   ../will.yml: &ref_0
-    hash: bb6ecae460af97c19fba987cd59fec85
-    size: 6231
+    hash: 4ce6f17746bbc280014bf384f964597b
+    size: 6239
 module:
   wMathGeometric.out:
     about:
@@ -1426,5 +1426,5 @@ module:
           - 'build::npm'
     consistency:
       ../will.yml:
-        hash: bb6ecae460af97c19fba987cd59fec85
-        size: 6231
+        hash: 4ce6f17746bbc280014bf384f964597b
+        size: 6239
